@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if ! command -v dotenvx >> /dev/null; then
+    echo "Forgot to install dotenvx? Tyr running: npm i -g @dotenvx/dotenvx"
+    exit 1
+fi
+
+if [[ $CI == "true" ]]; then
+    CLOUDFLARE_API_TOKEN=$(dotenvx get -f .env.ci -- CLOUDFLARE_API_TOKEN)
+else
+    CLOUDFLARE_API_TOKEN=$(dotenvx get CLOUDFLARE_API_TOKEN)
+fi
+export CLOUDFLARE_API_TOKEN

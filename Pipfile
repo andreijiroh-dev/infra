@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+octodns = "*"
+octodns-cloudflare = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
+
+[scripts]
+dns-dryrun = "octodns-sync --config-file=./octodns-config.yml"

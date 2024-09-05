@@ -1,0 +1,7 @@
+{
+    "tasks": {
+        "dns:import": "script/import-records",
+        "dns:apply": "script/apply",
+        "utils:check-tokens": "deno run -EN utils/test-tokens.ts"
+    }
+}

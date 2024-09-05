@@ -1,0 +1,276 @@
+---
+? ''
+: - octodns:
+      cloudflare:
+        auto-ttl: true
+        proxied: true
+    ttl: 300
+    type: AAAA
+    value: '100::'
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: MX
+    values:
+    - exchange: route2.mx.cloudflare.net.
+      preference: 64
+    - exchange: route3.mx.cloudflare.net.
+      preference: 81
+    - exchange: route1.mx.cloudflare.net.
+      preference: 95
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: TXT
+    values:
+    - MS=ms86401841
+    - TAILSCALE-2aYwpZIAbmAcYizqDSLg
+    - apple-domain=wimWA8U3uktgxxb0
+    - google-site-verification=-PpGjC2TLG69s7kpl9e9yuV78VO8Mi2XMtv6LOYrBIk
+    - hosted-email-verify=opr7hanl
+    - keybase-site-verification=RXJGiPvJA4AlNNrBs6S7UAFW1rId8AiqSeXjsiHG6kQ
+    - keybase-site-verification=RhBx6kZFp-CsHGjGX8c2UB4PXZOT4FGaTMK8BYmmjdI
+    - 'mailru-domain: 1RL7p3tqtIWJMkos'
+    - pinterest-site-verification=9b48426d39ceb8aad9849c52c6605244
+    - v=spf1 include:_spf.mx.cloudflare.net ~all
+4fpjcvxb72m2:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Google Search Console verification
+  ttl: 300
+  type: CNAME
+  value: gv-b5v3kuxh3i5kx2.dv.googlehosted.com.
+'*.cdn':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: link.storjshare.io.
+_acme-challenge.okta.sandbox:
+  type: TXT
+  value: J75We8nYRpkB5r2MTQbwFWqMJSgkJgLVp-YyrS-gKqg
+_dmarc:
+  ttl: 3000
+  type: TXT
+  values:
+  - v=DMARC1\;  p=none\; rua=mailto:fc097fbdc8e043688c3e26ca885ddb5d@dmarc-reports.cloudflare.net
+  - v=DMARC1\; p=quarantine\;
+_github-challenge-ajhalili2006-experiments-org:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: 7c3619cfe4
+_github-pages-challenge-ajhalili2006:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: b2c05fae128d3130a227f729523ede
+_github-pages-challenge-ajhalili2006-experiments.experiments:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: 28391ca81b849905203c9c3b2e3995
+_gitlab-pages-verification-code.garden:
+  type: TXT
+  value: gitlab-pages-verification-code=7090a47b38110e7b5e76a26b5e5c61e5
+_security:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  values:
+  - security_contact=https://andreijiroh.eu.org/secuirty/report
+  - security_contact=mailto:security@andreijiroh.eu.org
+  - security_policy=https://andreijiroh.eu.org/security
+_sip._tls:
+  type: SRV
+  value:
+    port: 443
+    priority: 100
+    target: sipdir.online.lync.com.
+    weight: 1
+_sipfederationtls._tcp:
+  type: SRV
+  value:
+    port: 5061
+    priority: 100
+    target: sipfed.online.lync.com.
+    weight: 1
+bounces.noreply:
+- type: MX
+  value:
+    exchange: feedback-smtp.us-east-1.amazonses.com.
+    preference: 10
+- type: TXT
+  value: v=spf1 include:amazonses.com ~all
+bulldozer.sandbox.tailnet:
+- octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: bulldozer-sandbox Alpine VM
+  ttl: 300
+  type: A
+  value: 100.124.0.164
+- octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: bulldozer-sandbox Alpine VM
+  ttl: 300
+  type: AAAA
+  value: fd7a:115c:a1e0:ab12:4843:cd96:627c:a4
+contextbot:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: kutt.it custom domain for setup
+      proxied: true
+  ttl: 300
+  type: A
+  value: 192.64.116.170
+fromthebshq:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: domains.tumblr.com.
+fwdserv:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  values:
+  - 'mailru-domain: TTPjzaFYRIijbHPf'
+  - v=spf1 include=_spf.mail.ru ~all
+garden:
+  type: CNAME
+  value: andreijiroh-dev.mau.life.
+gemini:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: pages.sr.ht.
+go:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: AAAA
+  value: '100::'
+hub:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.github.io.
+key1._domainkey:
+  ttl: 3000
+  type: CNAME
+  value: key1.andreijiroh.eu.org._domainkey.migadu.com.
+key2._domainkey:
+  ttl: 3000
+  type: CNAME
+  value: key2.andreijiroh.eu.org._domainkey.migadu.com.
+key3._domainkey:
+  ttl: 3000
+  type: CNAME
+  value: key3.andreijiroh.eu.org._domainkey.migadu.com.
+lab:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.mau.life.
+lyncdiscover.andreijiroh:
+  type: CNAME
+  value: webdir.online.lync.com.
+mailru._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDkXX44cOGATMhfYtOlTk07z+IyQ65X/KbFnr1mTsE9uCXakKGWRlI1uDoQnD5JpqS8KpHch3l8QCT6tH0HWBpd1R2rSVCYIvGQqDiTjTAM6ilrzDFaiWM9PgflhWcRUJWpDpCTr+gXngfsvtT5cv84RJ53681Ae2lK7PaILVzB2QIDAQAB
+multifandom:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: domains.tumblr.com.
+okta.sandbox:
+  type: CNAME
+  value: dev-86826158.customdomains.okta.com.
+portfolio:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: elliptical-reindeer-9slx8c6yicuiqiaqlwvaij3p.herokudns.com.
+releases.cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: public.r2.dev.
+resend._domainkey.noreply:
+  type: TXT
+  value: p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDH/l/8eer6XKaE5eimxiOq7KAtQFIII7HCtnxTi8P7Wum+tQTW4yLdPVAJzPndK01myXl6kkG/Th/Sed+jmoJrhSFHBfOELD1gJTvQ09j43yxN7tBdgeX7flbo5UFs5IFxQcfweMK0/SYDAiMa2RZKtxUOU//9CclSH6lSP6W3owIDAQAB
+sig1._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: icloud
+  ttl: 300
+  type: CNAME
+  value: sig1.dkim.andreijiroh.eu.org.at.icloudmailadmin.com.
+sip.andreijiroh:
+  type: CNAME
+  value: sipdir.online.lync.com.
+staging:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: readthedocs.io.
+txt-vod.cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  values:
+  - storj-access:jwbdq776c4zdtnyukz7sl7qkouwa
+  - storj-root:vod-archive
+  - storj-tls:true
+wiki:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: 'TODO: Temporary redirect to old wiki domain'
+      proxied: true
+  ttl: 300
+  type: A
+  value: 100.0.0.1

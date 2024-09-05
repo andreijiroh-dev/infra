@@ -1,0 +1,152 @@
+---
+? ''
+: - octodns:
+      cloudflare:
+        auto-ttl: true
+        proxied: true
+    ttl: 300
+    type: AAAA
+    value: '100::'
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: MX
+    values:
+    - exchange: route3.mx.cloudflare.net.
+      preference: 3
+    - exchange: route2.mx.cloudflare.net.
+      preference: 52
+    - exchange: route1.mx.cloudflare.net.
+      preference: 53
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: TXT
+    values:
+    - apple-domain=ib9NLIaOgXi56dHf
+    - google-site-verification=QDLrwobXk3GsAoFI8N1BuFKOiBikiJIeplIeLrGgBso
+    - hosted-email-verify=5udrevdy
+    - keybase-site-verification=eQF9YG0Ul-31r3SN7tpBkmpAiM4o50o0Egss0DXkQz0
+    - 'mailru-domain: vR0UnthywjcDUgv8'
+    - v=spf1 include:_spf.mx.cloudflare.net ~all
+3qv36umprayn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Google Search Console verification
+  ttl: 300
+  type: CNAME
+  value: gv-7dvno3jagbmast.dv.googlehosted.com.
+_dmarc:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DMARC1\; p=quarantine\; rua=mailto:65f6b802ff134b87919fd07316b0d601@dmarc-reports.cloudflare.net,mailto:ajhalili2006@gmail.com\;
+    ruf=mailto:ajhalili2006@gmail.com\; sp=none\; adkim=s\; aspf=s
+_github-pages-challenge-ajhalili2006:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: a6b31bc5fd1b5313486012f8da0ec6
+forum:
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.freeflarum.com.
+garden:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: AAAA
+  value: '100::'
+gemini:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Gemini version of my website + blog
+  ttl: 300
+  type: CNAME
+  value: pages.sr.ht.
+go:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: AAAA
+  value: '100::'
+key1._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: key1.andreijiroh.uk.eu.org._domainkey.migadu.com.
+key2._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: key2.andreijiroh.uk.eu.org._domainkey.migadu.com.
+key3._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: key3.andreijiroh.uk.eu.org._domainkey.migadu.com.
+portfolio:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: powerful-hyena-aj49u00edzmigt3ugbooxzc4.herokudns.com.
+readings:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: A
+  value: 107.178.251.177
+sig1._domainkey:
+  type: CNAME
+  value: sig1.dkim.andreijiroh.uk.eu.org.at.icloudmailadmin.com.
+wiki:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: mw-lb.miraheze.org.
+write:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: 9a870f2d-0b9d-4144-96f4-93245a411c1a.cfargotunnel.com.
+www:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: cname.vercel-dns.com.
+zmail._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzU3mn6KVqfKBxCzae46QjS9c2brlKGUvbfGVtKYLMyLt/6g1eoW+AAOVmQ14LEVLh6TqmtkgC4R1KQZUdwh14P5xL+5fqkVbwDzcqPKjiSqqYAtuhXaytqDK2qj1e6tIilgn8j1qPDq4bOkFyXTa7pvwJWVb68lsl22iH2MWSEwIDAQAB

@@ -1,0 +1,483 @@
+---
+? ''
+: - octodns:
+      cloudflare:
+        auto-ttl: true
+        proxied: true
+    ttl: 300
+    type: ALIAS
+    value: ajhalili2006.pages.dev.
+  - ttl: 60
+    type: MX
+    value:
+      exchange: emx.mail.ru.
+      preference: 10
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: TXT
+    values:
+    - ENS1 dnsname.ens.eth 0x84609b9CAE3bf0AE977ECB016B5E59e85C8afaaE
+    - MS=ms58490116
+    - TAILSCALE-LarssIFGZEPL6auuDRn8
+    - google-site-verification=7OeO5WHT7l126R4eQkYIBhETWInaEX5Y8Sa-bQJMwig
+    - google-site-verification=GNgiK9k5Nox8i3Gq7WByPkHMhzx6FRPeQcbTTpDKe48
+    - hosted-email-verify=inik0m2y
+    - 'mailru-domain: 4UYCAEDf4JUbpbfM'
+    - v=spf1 redirect=_spf.mail.ru
+'*':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: proxyparty.recaptime.dev.
+'*.cdn':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: link.storjshare.io.
+'*.docs':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: 5a21222659-hosting.gitbook.io.
+'*.localdev':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: local caddy server routes
+  ttl: 300
+  type: A
+  value: 127.0.0.1
+_atproto:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: did=did:plc:wcx4c3osbuzrwmxkqdfqygwv
+_autodiscover._tcp:
+  ttl: 3000
+  type: SRV
+  value:
+    port: 443
+    priority: 0
+    target: autodiscover.migadu.com.
+    weight: 1
+_discord:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Discord
+  ttl: 300
+  type: TXT
+  value: dh=09859c73c2e139024bb4e94b43909ad94f517852
+_dkim.skiff:
+  type: TXT
+  value: v=DMARC1\; p=reject\; pct=100\; adkim=s\; aspf=s
+_dmarc:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DMARC1\; p=quarantine\; rua=mailto:ajhalili2006@andreijiroh.xyz\; rua=mailto:6bb2e1410fb949eb81d0860a68aff331@dmarc-reports.cloudflare.net
+_doppler_hvaijucybwcgd:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: qWmWEi9vPS4SfRf9b6CtBSWCKfkzJM3S
+_ens:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: a=0x84609b9CAE3bf0AE977ECB016B5E59e85C8afaaE
+_gh-andreijiroh-dev-o:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: gh-org-challenge
+  ttl: 300
+  type: TXT
+  value: fd6d051542
+_github-pages-challenge-andreijiroh-dev:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: gh-pages-challenge
+  ttl: 300
+  type: TXT
+  value: e99add8ce4ed5be46875c1cfa2b1cf
+_gitlab-pages-verification-code.garden:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: GitLab Pages validation toolkit for garden.andreijiroh.xyz
+  ttl: 300
+  type: TXT
+  value: gitlab-pages-verification-code=5c9b1d0a8b69ab44215430b4a0bea2c5
+_imaps._tcp:
+  ttl: 3000
+  type: SRV
+  value:
+    port: 993
+    priority: 0
+    target: imap.migadu.com.
+    weight: 1
+_pop3s._tcp:
+  ttl: 3000
+  type: SRV
+  value:
+    port: 995
+    priority: 0
+    target: pop.migadu.com.
+    weight: 1
+_submissions._tcp:
+  ttl: 3000
+  type: SRV
+  value:
+    port: 465
+    priority: 0
+    target: smtp.migadu.com.
+    weight: 1
+_vercel:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  values:
+  - vc-domain-verify=comments.andreijiroh.xyz,0694106d259e775fb47f
+  - vc-domain-verify=scrapbook.andreijiroh.xyz,d2d5ec153e35cafd5e2f
+autoconfig:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: autoconfig.migadu.com.
+blog:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Hashnode personal blog
+  ttl: 300
+  type: CNAME
+  value: hashnode.network.
+bun-verify:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: 5241ab4fd04baa15cfa2f7d53a3735690e5b4d7d7563c0ad9d482008f87ff5d9
+calendar:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ghs.googlehosted.com.
+cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: CNAME required for public access via custom domain to work
+  ttl: 300
+  type: CNAME
+  value: link.storjshare.io.
+comments:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: cname.vercel-dns.com.
+docs:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: 5a21222659-hosting.gitbook.io.
+drive:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ghs.googlehosted.com.
+fromthebshq:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: A
+  value: 66.6.44.4
+garden:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: proxypartylab.up.railway.app.
+go:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: AAAA
+  value: '100::'
+go-next:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: AAAA
+  value: '100::'
+key1._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: key1.andreijiroh.xyz._domainkey.migadu.com.
+key2._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: key2.andreijiroh.xyz._domainkey.migadu.com.
+key3._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: key3.andreijiroh.xyz._domainkey.migadu.com.
+lists:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ghs.googlehosted.com.
+localdev:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: local caddy server routes
+  ttl: 300
+  type: A
+  value: 127.0.0.1
+mail:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ghs.googlehosted.com.
+mailru._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjoVI/UccgpRhb9gqmGkp6DjipSXVIsYeJ9CgAyGVcqyjY9D9p8lEUTDjccf/xHTDjrEFE+EEfr7a2i2X5/B+DvQK/b7M+1q9UpXCsRqRwXICI31OY5Y4A6NRRATWCwMXYwAkgZdIBRmx15/OkSNJI/k5d1dLyJEg9oCxOX2gRfwIDAQAB
+matrix:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Matrix homeserver on GCP
+      proxied: true
+  ttl: 300
+  type: A
+  value: 35.239.113.203
+mc.cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: CNAME required for public access via custom domain to work
+  ttl: 300
+  type: CNAME
+  value: link.storjshare.io.
+proxyparty:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: proxypartylab.up.railway.app.
+readings:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: A
+  value: 107.178.251.177
+releases:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: public.r2.dev.
+resend._domainkey.mail.services:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJJSgDRvWYXEqS6d9q4EqcUd4ZDHyfcLRd4k2gb0bwZ/UKFmQdDmJulZSrtNwtdDY6TG/gn6SV9CTXMNIPomKEaUOzVOWlaZgHJqyWQuE/wldiGna+9Hz2IFg34XLkhngB7b7cH8fAQbYKXPrsVzTKZDRQm57A4nD3BP5+RF5gNQIDAQAB
+scrapbook:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: cname.vercel-dns.com.
+scripts:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: andreijiroh-dev.github.io.
+send.mail.services:
+- octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: MX
+  value:
+    exchange: feedback-smtp.us-east-1.amazonses.com.
+    preference: 10
+- octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=spf1 include:amazonses.com ~all
+sig1._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: icloud
+  ttl: 300
+  type: CNAME
+  value: sig1.dkim.andreijiroh.xyz.at.icloudmailadmin.com.
+sites:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ghs.googlehosted.com.
+skiff:
+- type: MX
+  value:
+    exchange: inbound-smtp.skiff.com.
+    preference: 10
+- type: TXT
+  value: v=spf1 include:po80qbuez9s8e6r.spf.skiff.com -all
+skiff1._domainkey.skiff:
+  type: CNAME
+  value: skiff1.po80qbuez9s8e6r.dkim.skiff.com.
+skiff2._domainkey.skiff:
+  type: CNAME
+  value: skiff2.po80qbuez9s8e6r.dkim.skiff.com.
+sponsors:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: 5a21222659-hosting.gitbook.io.
+staging.go-next:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: AAAA
+  value: '100::'
+txt-cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Bucket prefix, as configured when setting up custom domain
+  ttl: 300
+  type: TXT
+  values:
+  - storj-access:jxcxf2ufbqwycq5wm5xk4p6yd66a
+  - storj-root:ajhalili2006-files
+  - storj-tls:true
+txt-mc.cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Gateway S3 Access ID for custom domain
+  ttl: 300
+  type: TXT
+  values:
+  - storj-access:juoitzpy3e3kg5ak66ni4b6xcada
+  - storj-root:world-downloads
+  - storj-tls:true
+txt-vod.cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  values:
+  - storj-access:jx77ughm7pvjgpbyvbzlir3sqcbq
+  - storj-root:vod-archive
+  - storj-tls:true
+wiki:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006-garden.pages.dev.
+youtrack:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.youtrack.cloud.
+zb93278380:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Zoho Directory verification challenge
+  ttl: 300
+  type: CNAME
+  value: zmverify.zoho.com.
+zmail._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpYnulC4esKXq9BHI7M/BCdbJxKIxbtlnfyEW1DKJXOaunaNwTUPassQdwzy/VUTZrQiSiFzlVOshA7wmOorwQqXzY5gex6wTk5Smv4OmFMEV4LrRfQVGY+Qh+5Ml0KY6mbfbSyTyJGmV6vtC4pK1dFWmqEgYIOPiEA5Z0F0Zw6QIDAQAB

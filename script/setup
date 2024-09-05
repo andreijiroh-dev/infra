@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+pip3 install --user pipenv
+pipenv install
+
+npm i -g @dotenvx/dotenvx

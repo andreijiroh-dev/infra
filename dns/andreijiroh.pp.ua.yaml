@@ -1,0 +1,22 @@
+---
+? ''
+: - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: MX
+    values:
+    - exchange: route3.mx.cloudflare.net.
+      preference: 68
+    - exchange: route2.mx.cloudflare.net.
+      preference: 76
+    - exchange: route1.mx.cloudflare.net.
+      preference: 89
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: TXT
+    values:
+    - hi mom!
+    - v=spf1 include:_spf.mx.cloudflare.net ~all

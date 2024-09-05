@@ -1,0 +1,23 @@
+providers:
+  config:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./dns
+    enforce_order: False
+  cf:
+    class: octodns_cloudflare.CloudflareProvider
+    token: env/CLOUDFLARE_API_TOKEN
+    #main_ttl: 120
+
+zones:
+  andreijiroh.xyz.:
+    sources: [config]
+    targets: [cf]
+  andreijiroh.eu.org.:
+    sources: [config]
+    targets: [cf]
+  andreijiroh.uk.eu.org.:
+    sources: [config]
+    targets: [cf]
+  andreijiroh.pp.ua.:
+    sources: [config]
+    targets: [cf]
