@@ -1,63 +1,22 @@
 #!/usr/bin/env bash
-
 if [[ $DEBUG != "" ]]; then
   set -x
 fi
 
-SCRIPT_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-# Load import.sh into the script first...
-source "${SCRIPT_DIRECTORY}/import"
-source "$SCRIPT_DIRECTORY/provider-auth"
+GIT_ROOT="$(git rev-parse --show-toplevel)"
+OLDPWD="$PWD"
 
-usage() {
-    echo "Usage: $0 [flags] command" >&2
-    return 2
-}
+if [[ "$PWD" != "$GIT_ROOT" ]]; then
+  echo "going to GIT_ROOT to avoid errors on octodns-sync and friends"
+  # shellcheck disable=SC2164
+  cd "$GIT_ROOT"
+fi
 
-checkEnvVars() {
-  for env in CLOUDFLARE_API_TOKEN TEST; do
-    if [[ $"${env}" == "" ]]; then
-      return 1
-    fi
-  done
-}
+if [ -z "${CI}" ]; then
+  dotenvx run -f .env -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
+else
+  dotenvx run -f .env.ci -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
+fi
 
-print_message() {
-  local message
-  local severity
-  local red
-  local green
-  local yellow
-  local nc
-
-  message="${1}"
-  severity="${2}"
-  red='\e[0;31m'
-  green='\e[0;32m'
-  yellow='\e[1;33m'
-  nc='\e[0m'
-
-  case "${severity}" in
-    "info" ) echo -e "${nc}${message}${nc}";;
-      "ok" ) echo -e "${green}${message}${nc}";;
-   "error" ) echo -e "${red}${message}${nc}";;
-    "warn" ) echo -e "${yellow}${message}${nc}";;
-  esac
-}
-
-dryrun() {
-  pipenv run dns-dryrun
-}
-
-main() {
-  
-  case "$1" in
-    "dry-run" | "test" | "validate")
-      checkEnvVars
-      dryrun
-      ;;
-    *) usage && exit 1;;
-  esac
-}
-
-main "$*"
+# shellcheck disable=SC2164
+cd "$OLDPWD"
