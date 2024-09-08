@@ -6,8 +6,8 @@ if ! command -v dotenvx >> /dev/null; then
 fi
 
 if [[ $CI == "true" ]]; then
-    CLOUDFLARE_API_TOKEN=$(dotenvx get -f .env.ci -- CLOUDFLARE_API_TOKEN)
+    CLOUDFLARE_TOKEN=$(dotenvx get -f .env.ci -- CLOUDFLARE_API_TOKEN)
 else
-    CLOUDFLARE_API_TOKEN=$(dotenvx get CLOUDFLARE_API_TOKEN)
+    CLOUDFLARE_TOKEN=$(dotenvx get CLOUDFLARE_API_TOKEN)
 fi
-export CLOUDFLARE_API_TOKEN
+export CLOUDFLARE_TOKEN CLOUDFLARE_API_TOKEN=$CLOUDFLARE_TOKEN

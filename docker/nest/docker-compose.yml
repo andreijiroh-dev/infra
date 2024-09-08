@@ -1,0 +1,34 @@
+version: "3.4"
+
+services:
+  ghost:
+    networks:
+    - internal
+    image: ghost:5-alpine
+    restart: unless-stopped
+    ports:
+      - 33291:2368
+    environment:
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: mysql-cahos
+      database__connection__database: ghost
+      url: https://blog.andreijiroh.dev
+    env_file: .env.ghost.decrypted
+    volumes:
+      - ./data/ghost:/var/lib/ghost/content
+  db:
+    networks:
+    - internal
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql-chaos
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+networks:
+  internal:
+    attachable: true
+

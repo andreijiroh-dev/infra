@@ -5,10 +5,14 @@ providers:
     enforce_order: False
   cf:
     class: octodns_cloudflare.CloudflareProvider
-    token: env/CLOUDFLARE_API_TOKEN
+    token: env/CLOUDFLARE_TOKEN
+    account_id: cf0bd808c6a294fd8c4d8f6d2cdeca05
     #main_ttl: 120
 
 zones:
+  andreijiroh.dev.:
+    sources: [config]
+    targets: [cf]
   andreijiroh.xyz.:
     sources: [config]
     targets: [cf]

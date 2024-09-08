@@ -1,0 +1,123 @@
+---
+? ''
+: - octodns:
+      cloudflare:
+        auto-ttl: true
+        proxied: true
+    ttl: 300
+    type: ALIAS
+    value: ajhalili2006.helioho.st.
+  - ttl: 120
+    type: MX
+    value:
+      exchange: ajhalili2006.helioho.st.
+      preference: 10
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: TXT
+    values:
+    - 'https://hackclub.com/arcade | #ajhalili2006-lair:hackclub.slack.com'
+    - 'v=spf1 a: ip4:65.19.154.94 ip6:2001:470:1:1ee::2002 include:_spf.mail.ru ~all'
+"*.stellapent-cier.tailnet":
+- ttl: 300
+  type: A
+  value: 100.87.227.94
+- ttl: 300
+  type: AAAA
+  value: fd7a:115c:a1e0::a401:e35e
+_domainkey:
+  ttl: 300
+  type: TXT
+  value: o=-
+_gh-andreijiroh-dev-o:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: gh-org-challenge
+  ttl: 300
+  type: TXT
+  value: 16058f802f
+localdev:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: local caddy server routes
+  ttl: 300
+  type: A
+  value: 127.0.0.1
+matrix:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Matrix homeserver on Hack Club Nest
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.hackclub.app.
+mg:
+- ttl: 300
+  type: TXT
+  values:
+  - "v=spf1 include:mailgun.org ~all"
+- ttl: 300
+  type: MX
+  values:
+  - exchange: mxa.mailgun.org.
+    priority: 10
+  - exchange: mxb.mailgun.org.
+    priority: 10
+email.mg:
+  ttl: 300
+  type: CNAME
+  value: mailgun.org.
+k1._domainkey.mg:
+  ttl: 300
+  type: TXT
+  value: k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAug+Y7/HrQqnT9mv30NZCIsMGHYO/fqIqejECU6SzJt6Voi+/VbnhfM8vGiGNbbhlfe81Tl7fqQviZui5zcgHTUj00nTSHHUyiZaOr3rNeQDmZmMTCbyf3c5tYrT442esAl1g1BLmQktQTZCZoTsjxFyZeqhdqLLOUsBVCdbxfIWw035STnbd/yLzhqBisbqzxqrGfdDGXx5/L46l7uPQLlXYVy7P7Opa225tqi4RrNx9aKBrXdv8wc8yE4aooJb+sNd67j/GcznUAIKWr29+eU06zeLp8MPTN21JcLU+Ehr7RdiCbkayrGsjLEVl8K0zjge+qzJA/MiY4RXYO0dE6wIDAQAB
+plesk:
+  octodns:
+    cloudflare:
+      comment: "Plesk dashboard for tommy2"
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: tommy2.heliohost.org.
+stellapent-cier.tailnet:
+- ttl: 300
+  type: A
+  value: 100.87.227.94
+- ttl: 300
+  type: AAAA
+  value: fd7a:115c:a1e0::a401:e35e
+tommy2heliohost._domainkey:
+  octodns:
+    cloudflare:
+      comment: DKIM setup on heliohost.org
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqIQfQhkFCIelBwCGlLCm9FFb36ksaB7vb1Oj/rTzWhz/1xAtg6XtdHHrL2zTzodsEWGFl1eZ5Wjdktb8bqxieVFtdMJJ5r3sW+4Oimx9oDPtA9ZWRw2My231mux9OGSiVhOjKSI+eLzsOAKc/BcLqYrg1PnbkV8lK/T0MQpxX+lSbGidlVM5MVceUgeJ+Kq+D7cbBupFqv8atHO6OxRMDLRqDacwVLGkrjHnOMss9WfZ4st1bTxxCufUSRDKLCevyBcO2IKzsVTt+0nlQQ6UI9lTYqpLJDqA7X6P/o5jF2aAIn+G9mBGwuk/bb/i55oBiEI1+Wu4kVnL6IxEmhLVfwIDAQAB\;
+webmail:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: webmail on heliohost
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.helioho.st.
+wikilab:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: nyc.domcloud.co.
+www:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.helioho.st.
