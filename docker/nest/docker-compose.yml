@@ -11,20 +11,26 @@ services:
     environment:
       database__client: mysql
       database__connection__host: db
-      database__connection__user: root
-      database__connection__password: mysql-cahos
+      database__connection__user: ghost
+      database__connection__password: ghost-docker
       database__connection__database: ghost
       url: https://blog.andreijiroh.dev
     env_file: .env.ghost.decrypted
     volumes:
       - ./data/ghost:/var/lib/ghost/content
+    depends_on:
+      - db
   db:
+    domainname: mysql.internal
     networks:
     - internal
     image: mysql:8.0
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: mysql-chaos
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ghost-docker
+      MYSQL_DATABASE: ghost
     volumes:
       - ./data/mysql:/var/lib/mysql
 

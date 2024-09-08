@@ -1,0 +1,17 @@
+{
+    "deno.enable": true,
+    "dotenv.enableAutocloaking": false,
+    "git.alwaysSignOff": true,
+    "conventionalCommits.scopes": [
+        "readme",
+        "docs",
+        "scripts",
+        "gitlab-ci",
+        "homelab",
+        "docker",
+        "global"
+    ],
+    "files.associations": {
+        "script/*": "shellscript"
+    }
+}

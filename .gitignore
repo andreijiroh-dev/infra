@@ -1,2 +1,4 @@
 .env.keys
 node_modules
+data
+*.decrypted
