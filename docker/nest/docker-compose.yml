@@ -21,7 +21,7 @@ services:
     depends_on:
       - db
   db:
-    domainname: mysql.internal
+    #domainname: mysql.internal
     networks:
     - internal
     image: mysql:8.0

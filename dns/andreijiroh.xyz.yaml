@@ -403,6 +403,15 @@ staging.go-next:
   type: AAAA
   value: '100::'
 
+status:
+  ttl: 300
+  type: CNAME
+  value: r.forwarddomain.net.
+_.status:
+  ttl: 300
+  type: TXT
+  value: "forward-domain=https://status.andreijiroh.dev/*"
+
 txt-cdn:
   octodns:
     cloudflare:

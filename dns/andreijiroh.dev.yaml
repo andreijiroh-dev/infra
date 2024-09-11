@@ -39,6 +39,10 @@ _gh-andreijiroh-dev-o:
   ttl: 300
   type: TXT
   value: 16058f802f
+blog:
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.hackclub.app.
 localdev:
   octodns:
     cloudflare:
@@ -83,6 +87,14 @@ plesk:
   ttl: 300
   type: CNAME
   value: tommy2.heliohost.org.
+scraps:
+  ttl: 300
+  type: CNAME
+  value: cname.vercel-dns.com.
+sponsors:
+  ttl: 300
+  type: CNAME
+  value: 5a21222659-hosting.gitbook.io.
 stellapent-cier.tailnet:
 - ttl: 300
   type: A
@@ -90,6 +102,10 @@ stellapent-cier.tailnet:
 - ttl: 300
   type: AAAA
   value: fd7a:115c:a1e0::a401:e35e
+status:
+  ttl: 300
+  type: CNAME
+  value: andreijiroh-dev.github.io.
 tommy2heliohost._domainkey:
   octodns:
     cloudflare:
