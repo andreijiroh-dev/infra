@@ -10,7 +10,7 @@ services:
       - 33291:2368
     environment:
       database__client: mysql
-      database__connection__host: db
+      database__connection__host: mysql
       database__connection__user: ghost
       database__connection__password: ghost-docker
       database__connection__database: ghost
@@ -19,8 +19,32 @@ services:
     volumes:
       - ./data/ghost:/var/lib/ghost/content
     depends_on:
-      - db
-  db:
+      - mysql
+
+  hedgedoc:
+    networks:
+      - internal
+    image: quay.io/hedgedoc/hedgedoc:1.10.0
+    environment:
+      - CMD_DOMAIN=notepad.recaptime.dev
+      - CMD_URL_ADDPORT=false
+      - CMD_ALLOW_FREEURL=true
+      - CMD_ALLOW_GRAVATAR=true
+      - CMD_EMAIL=false
+      - CMD_ALLOW_ANONYMOUS=false
+      - CMD_ALLOW_ANONYMOUS_EDITS=true
+      - CMD_REQUIRE_FREEURL_AUTHENTICATION=true
+      - CMD_CSP_ALLOW_PDF_EMBED=false
+    volumes:
+      - ./hedgedoc:/deploydocs
+    env_file: .env.hedgedoc.decrypted
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+    #- "postgres.hackclub.app:host-gateway"
+    ports:
+      - 34171:3000
+
+  mysql:
     #domainname: mysql.internal
     networks:
     - internal
