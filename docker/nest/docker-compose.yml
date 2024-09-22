@@ -21,22 +21,51 @@ services:
     depends_on:
       - mysql
 
+  ghost-rtdev:
+    networks:
+    - internal
+    image: ghost:5-alpine
+    restart: unless-stopped
+    ports:
+      - 37023:2368
+    environment:
+      database__client: mysql
+      database__connection__host: mysql
+      database__connection__user: ghost
+      database__connection__password: ghost-docker
+      database__connection__database: ghost_rtdev
+      url: https://blog.andreijiroh.dev
+    env_file: .env.ghost.decrypted
+    volumes:
+      - ./data/ghost:/var/lib/ghost/content
+    depends_on:
+      - mysql
+
   hedgedoc:
     networks:
       - internal
+    restart: unless-stopped
     image: quay.io/hedgedoc/hedgedoc:1.10.0
     environment:
-      - CMD_DOMAIN=https://notepad.recaptime.dev
+      - DEBUG=true
+      - CMD_LOGLEVEL=debug
+      #- CMD_DB_URL=postgres://hedgedoc:hedgedoc-prod@postgres:5432/hedgedoc
+      - CMD_DOMAIN=notepad.recaptime.dev
+      - CMD_PROTOCOL_USESSL=true
       - CMD_URL_ADDPORT=false
       - CMD_ALLOW_FREEURL=true
       - CMD_ALLOW_GRAVATAR=true
-      - CMD_EMAIL=false
-      - CMD_ALLOW_ANONYMOUS=false
-      - CMD_ALLOW_ANONYMOUS_EDITS=true
+      - CMD_EMAIL=true
+      #- CMD_ALLOW_EMAIL_REGISTER=false
+      #- CMD_ALLOW_ANONYMOUS=false
+      #- CMD_ALLOW_ANONYMOUS_EDITS=true
       - CMD_REQUIRE_FREEURL_AUTHENTICATION=true
       - CMD_CSP_ALLOW_PDF_EMBED=false
+      - CMD_S3_PUBLIC_FILES=true
     volumes:
-      - ./hedgedoc:/deploydocs
+      - ${PWD}/hedgedoc/privacy.md:/hedgedoc/public/docs/privacy.md
+      - ${PWD}/hedgedoc/terms.md:/hedgedoc/public/docs/terms-of-use.md
+      - ${PWD}/hedgedoc/imprint.md:/hedgedoc/public/docs/imprint.md
     env_file: .env.hedgedoc.decrypted
     extra_hosts:
     - "host.docker.internal:host-gateway"
