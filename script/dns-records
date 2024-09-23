@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MPL-2.0
+
 if [[ $DEBUG != "" ]]; then
   set -x
 fi
@@ -13,10 +15,15 @@ if [[ "$PWD" != "$GIT_ROOT" ]]; then
 fi
 
 if [ -z "${CI}" ]; then
-  dotenvx run -f .env -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
-else
   dotenvx run -f .env.ci -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
+else
+  dotenvx run -f .env -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
 fi
+exitcode=$?
 
 # shellcheck disable=SC2164
 cd "$OLDPWD"
+
+if [[ $exitcode != "0" ]]; then
+  exit ${exitcode:-"1"}
+fi
