@@ -19,7 +19,25 @@
     type: TXT
     values:
     - 'https://hackclub.com/arcade | #ajhalili2006-lair:hackclub.slack.com'
-    - 'v=spf1 a: ip4:65.19.154.94 ip6:2001:470:1:1ee::2002 include:_spf.mail.ru ~all'
+    - 'v=spf1 a: ip4:65.19.154.90 ip6:2001:470:1:1ee::1002 include:_spf.mail.ru ~all'
+'*':
+- octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: A
+  value: "34.46.28.111"
+- octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: AAAA
+  value: "2600:1900:4001:b0b:0:1::"
+- ttl: 300
+  type: TXT
+  values:
+  - domain-verification=ajhalili2006
+  - 'v=managed-dns tool:octodns repo:https://github.com/andreijiroh-dev/infra'
 "*.stellapent-cier.tailnet":
 - ttl: 300
   type: A
@@ -86,7 +104,7 @@ plesk:
       proxied: true
   ttl: 300
   type: CNAME
-  value: tommy2.heliohost.org.
+  value: tommy.heliohost.org.
 scraps:
   ttl: 300
   type: CNAME
