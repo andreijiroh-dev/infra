@@ -18,8 +18,10 @@
     ttl: 300
     type: TXT
     values:
+    - google-site-verification=puR8g7Wn_-HRIrJhDj3UtmDu2vz8hsfLASzmIZGm1rA
     - 'https://hackclub.com/arcade | #ajhalili2006-lair:hackclub.slack.com'
     - 'v=spf1 a: ip4:65.19.154.90 ip6:2001:470:1:1ee::1002 include:_spf.mail.ru ~all'
+    - 'TAILSCALE-9bqiXFscKPtpcfv62xXn'
 '*':
 - octodns:
     cloudflare:
