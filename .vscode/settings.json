@@ -9,7 +9,8 @@
         "gitlab-ci",
         "homelab",
         "docker",
-        "global"
+        "global",
+        "dns"
     ],
     "files.associations": {
         "script/*": "shellscript"
