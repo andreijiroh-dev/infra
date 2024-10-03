@@ -1,0 +1,89 @@
+# SPDX-License-Identifier: MPL
+# This Docker Compose file covers my entire local dev setup on both my homelab
+# and my (future) laptop.
+
+services:
+  proxyparty:
+    image: ghcr.io/andreijiroh-dev/docker-images/caddy
+    volumes:
+      - ./caddy:/etc/caddy
+      - caddy:/data/caddy
+    cap_add:
+      - NET_ADMIN
+      - NET_BIND_SERVICE
+    ports:
+      - 80:80
+      - 443:443
+      - 2019:2019
+    networks:
+      - tailscale
+      - proxyparty-router
+    command: caddy run --environ --resume
+
+  bastion:
+    build:
+      context: ../bastion-tailscale
+    volumes:
+      # TODO: Update this path if you're rootless
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - .env.localdev.decrypted
+    networks:
+      - tailscale
+
+  redis:
+    image: bitnami/redis:7.4
+    env_file:
+    - .env.localdev.decrypted
+    ports:
+      - 6379:6379
+    volumes:
+      - db-redis:/bitnami/redis/data
+    networks:
+      - tailscale
+
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    env_file:
+    - .env.localdev.decrypted
+    volumes:
+      - db-mysql:/var/lib/mysql
+    networks:
+      - tailscale
+    ports:
+      - 3306:3306
+
+  postgres:
+    image: timescale/timescaledb:latest-pg16
+    restart: unless-stopped
+    env_file:
+    - .env.localdev.decrypted
+    volumes:
+      - db-postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - tailscale
+
+networks:
+  proxyparty-router:
+    enable_ipv6: true
+    name: proxyparty-docker
+    attachable: true
+  tailscale:
+    enable_ipv6: true
+    name: tsnet-router
+    attachable: true
+
+volumes:
+  db-redis:
+    name: redis-data
+  db-mysql:
+    name: mysql-data
+  db-mariadb:
+    name: mariadb-data
+  db-postgres:
+    name: psql-data
+  caddy:
+    name: caddy-data
