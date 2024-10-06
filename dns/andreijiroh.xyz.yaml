@@ -9,17 +9,17 @@
     value: ajhalili2006.pages.dev.
   - octodns:
       cloudflare:
-        comment: "mail forwarders"
         auto-ttl: true
-    ttl: 3000
+        comment: mail forwarders
+    ttl: 300
     type: MX
     values:
+    - exchange: route3.mx.cloudflare.net.
+      preference: 31
     - exchange: route1.mx.cloudflare.net.
       preference: 35
     - exchange: route2.mx.cloudflare.net.
       preference: 56
-    - exchange: route3.mx.cloudflare.net.
-      preference: 31
   - octodns:
       cloudflare:
         auto-ttl: true
@@ -33,27 +33,25 @@
     - google-site-verification=GNgiK9k5Nox8i3Gq7WByPkHMhzx6FRPeQcbTTpDKe48
     - hosted-email-verify=inik0m2y
     - 'mailru-domain: 4UYCAEDf4JUbpbfM'
-    - "v=spf1 include:_spf.mx.cloudflare.net ~all"
-
+    - v=spf1 include:_spf.mx.cloudflare.net ~all
 '*':
 - octodns:
     cloudflare:
       auto-ttl: true
   ttl: 300
   type: A
-  value: "34.46.28.111"
+  value: 34.46.28.111
 - octodns:
     cloudflare:
       auto-ttl: true
   ttl: 300
   type: AAAA
-  value: "2600:1900:4001:b0b:0:1::"
+  value: '2600:1900:4001:b0b:0:1::'
 - ttl: 300
   type: TXT
   values:
   - domain-verification=ajhalili2006
-  - 'v=managed-dns tool:octodns repo:https://github.com/andreijiroh-dev/infra'
-
+  - v=managed-dns tool:octodns repo:https://github.com/andreijiroh-dev/infra
 '*.cdn':
   octodns:
     cloudflare:
@@ -61,7 +59,6 @@
   ttl: 300
   type: CNAME
   value: link.storjshare.io.
-
 '*.docs':
   octodns:
     cloudflare:
@@ -69,7 +66,6 @@
   ttl: 300
   type: CNAME
   value: 5a21222659-hosting.gitbook.io.
-
 '*.localdev':
   octodns:
     cloudflare:
@@ -78,7 +74,10 @@
   ttl: 300
   type: A
   value: 127.0.0.1
-
+_.status:
+  ttl: 300
+  type: TXT
+  value: forward-domain=https://status.andreijiroh.dev/*
 _atproto:
   octodns:
     cloudflare:
@@ -86,7 +85,6 @@ _atproto:
   ttl: 300
   type: TXT
   value: did=did:plc:wcx4c3osbuzrwmxkqdfqygwv
-
 _discord:
   octodns:
     cloudflare:
@@ -95,11 +93,9 @@ _discord:
   ttl: 300
   type: TXT
   value: dh=09859c73c2e139024bb4e94b43909ad94f517852
-
 _dkim.skiff:
   type: TXT
   value: v=DMARC1\; p=reject\; pct=100\; adkim=s\; aspf=s
-
 _dmarc:
   octodns:
     cloudflare:
@@ -107,7 +103,6 @@ _dmarc:
   ttl: 300
   type: TXT
   value: v=DMARC1\; p=quarantine\; rua=mailto:ajhalili2006@andreijiroh.xyz\; rua=mailto:6bb2e1410fb949eb81d0860a68aff331@dmarc-reports.cloudflare.net
-
 _doppler_hvaijucybwcgd:
   octodns:
     cloudflare:
@@ -115,7 +110,6 @@ _doppler_hvaijucybwcgd:
   ttl: 300
   type: TXT
   value: qWmWEi9vPS4SfRf9b6CtBSWCKfkzJM3S
-
 _ens:
   octodns:
     cloudflare:
@@ -123,7 +117,6 @@ _ens:
   ttl: 300
   type: TXT
   value: a=0x84609b9CAE3bf0AE977ECB016B5E59e85C8afaaE
-
 _gh-andreijiroh-dev-o:
   octodns:
     cloudflare:
@@ -132,7 +125,6 @@ _gh-andreijiroh-dev-o:
   ttl: 300
   type: TXT
   value: fd6d051542
-
 _github-pages-challenge-andreijiroh-dev:
   octodns:
     cloudflare:
@@ -141,7 +133,6 @@ _github-pages-challenge-andreijiroh-dev:
   ttl: 300
   type: TXT
   value: e99add8ce4ed5be46875c1cfa2b1cf
-
 _gitlab-pages-verification-code.garden:
   octodns:
     cloudflare:
@@ -150,7 +141,21 @@ _gitlab-pages-verification-code.garden:
   ttl: 300
   type: TXT
   value: gitlab-pages-verification-code=5c9b1d0a8b69ab44215430b4a0bea2c5
-
+_mta-sts:
+  ttl: 300
+  type: TXT
+  value: 'v=STSv1\; id=172805194267Z\;'
+_security:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Security policy as TXT records
+  ttl: 300
+  type: TXT
+  values:
+  - security_contact=https://andreijiroh.dev/contact/security
+  - security_contact=mailto:ajhalili2006@andreijiroh.dev
+  - security_policy=https://andreijiroh.dev/security
 _vercel:
   octodns:
     cloudflare:
@@ -160,7 +165,6 @@ _vercel:
   values:
   - vc-domain-verify=comments.andreijiroh.xyz,0694106d259e775fb47f
   - vc-domain-verify=scrapbook.andreijiroh.xyz,d2d5ec153e35cafd5e2f
-
 blog:
   octodns:
     cloudflare:
@@ -169,7 +173,6 @@ blog:
   ttl: 300
   type: CNAME
   value: hashnode.network.
-
 bun-verify:
   octodns:
     cloudflare:
@@ -177,7 +180,6 @@ bun-verify:
   ttl: 300
   type: TXT
   value: 5241ab4fd04baa15cfa2f7d53a3735690e5b4d7d7563c0ad9d482008f87ff5d9
-
 calendar:
   octodns:
     cloudflare:
@@ -185,7 +187,6 @@ calendar:
   ttl: 300
   type: CNAME
   value: ghs.googlehosted.com.
-
 cdn:
   octodns:
     cloudflare:
@@ -194,7 +195,6 @@ cdn:
   ttl: 300
   type: CNAME
   value: link.storjshare.io.
-
 comments:
   octodns:
     cloudflare:
@@ -202,7 +202,6 @@ comments:
   ttl: 300
   type: CNAME
   value: cname.vercel-dns.com.
-
 docs:
   octodns:
     cloudflare:
@@ -210,7 +209,6 @@ docs:
   ttl: 300
   type: CNAME
   value: 5a21222659-hosting.gitbook.io.
-
 fromthebshq:
   octodns:
     cloudflare:
@@ -218,7 +216,6 @@ fromthebshq:
   ttl: 300
   type: A
   value: 66.6.44.4
-
 garden:
   octodns:
     cloudflare:
@@ -227,7 +224,6 @@ garden:
   ttl: 300
   type: CNAME
   value: proxypartylab.up.railway.app.
-
 go:
   octodns:
     cloudflare:
@@ -236,7 +232,6 @@ go:
   ttl: 300
   type: AAAA
   value: '100::'
-
 go-next:
   octodns:
     cloudflare:
@@ -245,31 +240,6 @@ go-next:
   ttl: 300
   type: AAAA
   value: '100::'
-
-key1._domainkey:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-  ttl: 300
-  type: CNAME
-  value: key1.andreijiroh.xyz._domainkey.migadu.com.
-
-key2._domainkey:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-  ttl: 300
-  type: CNAME
-  value: key2.andreijiroh.xyz._domainkey.migadu.com.
-
-key3._domainkey:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-  ttl: 300
-  type: CNAME
-  value: key3.andreijiroh.xyz._domainkey.migadu.com.
-
 lists:
   octodns:
     cloudflare:
@@ -277,7 +247,6 @@ lists:
   ttl: 300
   type: CNAME
   value: ghs.googlehosted.com.
-
 localdev:
   octodns:
     cloudflare:
@@ -286,7 +255,6 @@ localdev:
   ttl: 300
   type: A
   value: 127.0.0.1
-
 mailru._domainkey:
   octodns:
     cloudflare:
@@ -294,16 +262,6 @@ mailru._domainkey:
   ttl: 300
   type: TXT
   value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjoVI/UccgpRhb9gqmGkp6DjipSXVIsYeJ9CgAyGVcqyjY9D9p8lEUTDjccf/xHTDjrEFE+EEfr7a2i2X5/B+DvQK/b7M+1q9UpXCsRqRwXICI31OY5Y4A6NRRATWCwMXYwAkgZdIBRmx15/OkSNJI/k5d1dLyJEg9oCxOX2gRfwIDAQAB
-
-matrix:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-      comment: Matrix homeserver on Hack Club Nest
-  ttl: 300
-  type: CNAME
-  value: ajhalili2006.hackclub.app.
-
 mc.cdn:
   octodns:
     cloudflare:
@@ -312,7 +270,14 @@ mc.cdn:
   ttl: 300
   type: CNAME
   value: link.storjshare.io.
-
+mta-sts:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: mta-sts-ajhalili2006.pages.dev.
 proxyparty:
   octodns:
     cloudflare:
@@ -321,7 +286,6 @@ proxyparty:
   ttl: 300
   type: CNAME
   value: proxypartylab.up.railway.app.
-
 readings:
   octodns:
     cloudflare:
@@ -330,7 +294,6 @@ readings:
   ttl: 300
   type: A
   value: 107.178.251.177
-
 releases:
   octodns:
     cloudflare:
@@ -339,7 +302,6 @@ releases:
   ttl: 300
   type: CNAME
   value: public.r2.dev.
-
 resend._domainkey.mail.services:
   octodns:
     cloudflare:
@@ -347,15 +309,6 @@ resend._domainkey.mail.services:
   ttl: 300
   type: TXT
   value: p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJJSgDRvWYXEqS6d9q4EqcUd4ZDHyfcLRd4k2gb0bwZ/UKFmQdDmJulZSrtNwtdDY6TG/gn6SV9CTXMNIPomKEaUOzVOWlaZgHJqyWQuE/wldiGna+9Hz2IFg34XLkhngB7b7cH8fAQbYKXPrsVzTKZDRQm57A4nD3BP5+RF5gNQIDAQAB
-
-scrapbook:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-  ttl: 300
-  type: CNAME
-  value: cname.vercel-dns.com.
-
 scripts:
   octodns:
     cloudflare:
@@ -363,7 +316,6 @@ scripts:
   ttl: 300
   type: CNAME
   value: andreijiroh-dev.github.io.
-
 send.mail.services:
 - octodns:
     cloudflare:
@@ -379,7 +331,6 @@ send.mail.services:
   ttl: 300
   type: TXT
   value: v=spf1 include:amazonses.com ~all
-
 sig1._domainkey:
   octodns:
     cloudflare:
@@ -388,7 +339,6 @@ sig1._domainkey:
   ttl: 300
   type: CNAME
   value: sig1.dkim.andreijiroh.xyz.at.icloudmailadmin.com.
-
 sites:
   octodns:
     cloudflare:
@@ -396,7 +346,6 @@ sites:
   ttl: 300
   type: CNAME
   value: ghs.googlehosted.com.
-
 sponsors:
   octodns:
     cloudflare:
@@ -404,7 +353,6 @@ sponsors:
   ttl: 300
   type: CNAME
   value: 5a21222659-hosting.gitbook.io.
-
 staging.go-next:
   octodns:
     cloudflare:
@@ -413,16 +361,10 @@ staging.go-next:
   ttl: 300
   type: AAAA
   value: '100::'
-
 status:
   ttl: 300
   type: CNAME
   value: r.forwarddomain.net.
-_.status:
-  ttl: 300
-  type: TXT
-  value: "forward-domain=https://status.andreijiroh.dev/*"
-
 txt-cdn:
   octodns:
     cloudflare:
@@ -434,7 +376,6 @@ txt-cdn:
   - storj-access:jxcxf2ufbqwycq5wm5xk4p6yd66a
   - storj-root:ajhalili2006-files
   - storj-tls:true
-
 txt-mc.cdn:
   octodns:
     cloudflare:
@@ -446,7 +387,6 @@ txt-mc.cdn:
   - storj-access:juoitzpy3e3kg5ak66ni4b6xcada
   - storj-root:world-downloads
   - storj-tls:true
-
 txt-vod.cdn:
   octodns:
     cloudflare:
@@ -457,16 +397,6 @@ txt-vod.cdn:
   - storj-access:jx77ughm7pvjgpbyvbzlir3sqcbq
   - storj-root:vod-archive
   - storj-tls:true
-
-wiki:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-      proxied: true
-  ttl: 300
-  type: CNAME
-  value: ajhalili2006-garden.pages.dev.
-
 webmail:
   octodns:
     cloudflare:
@@ -476,7 +406,14 @@ webmail:
   ttl: 300
   type: CNAME
   value: webmail.ajhalili2006.helioho.st.
-
+wiki:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006-garden.pages.dev.
 youtrack:
   octodns:
     cloudflare:
@@ -484,7 +421,6 @@ youtrack:
   ttl: 300
   type: CNAME
   value: ajhalili2006.youtrack.cloud.
-
 zb93278380:
   octodns:
     cloudflare:
@@ -493,7 +429,6 @@ zb93278380:
   ttl: 300
   type: CNAME
   value: zmverify.zoho.com.
-
 zmail._domainkey:
   octodns:
     cloudflare:

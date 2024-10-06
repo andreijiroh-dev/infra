@@ -6,7 +6,7 @@
         proxied: true
     ttl: 300
     type: ALIAS
-    value: ajhalili2006.helioho.st.
+    value: ajhalili2006.pages.dev.
   - ttl: 120
     type: MX
     value:
@@ -18,39 +18,60 @@
     ttl: 300
     type: TXT
     values:
+    - TAILSCALE-9bqiXFscKPtpcfv62xXn
     - google-site-verification=puR8g7Wn_-HRIrJhDj3UtmDu2vz8hsfLASzmIZGm1rA
     - 'https://hackclub.com/arcade | #ajhalili2006-lair:hackclub.slack.com'
-    - 'v=spf1 a: ip4:65.19.154.90 ip6:2001:470:1:1ee::1002 include:_spf.mail.ru ~all'
-    - 'TAILSCALE-9bqiXFscKPtpcfv62xXn'
+    - 'v=spf1 ip4:65.19.154.90 ip6:2001:470:1:1ee::1002 include:_spf.mail.ru ~all'
 '*':
 - octodns:
     cloudflare:
       auto-ttl: true
   ttl: 300
   type: A
-  value: "34.46.28.111"
+  value: 34.46.28.111
 - octodns:
     cloudflare:
       auto-ttl: true
   ttl: 300
   type: AAAA
-  value: "2600:1900:4001:b0b:0:1::"
+  value: '2600:1900:4001:b0b:0:1::'
 - ttl: 300
   type: TXT
   values:
   - domain-verification=ajhalili2006
-  - 'v=managed-dns tool:octodns repo:https://github.com/andreijiroh-dev/infra'
-"*.stellapent-cier.tailnet":
+  - v=managed-dns tool:octodns repo:https://github.com/andreijiroh-dev/infra
+'*.stellapent-cier.tailnet':
 - ttl: 300
   type: A
   value: 100.87.227.94
 - ttl: 300
   type: AAAA
   value: fd7a:115c:a1e0::a401:e35e
+_atproto:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: did=did:plc:wcx4c3osbuzrwmxkqdfqygwv
+_dmarc:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: 'v=DMARC1\; p=reject\; sp=reject\; pct=100\; rua=mailto:ccbe166eb276418eae05602faa3926d5@dmarc-reports.cloudflare.net\; ruf=mailto:ccbe166eb276418eae05602faa3926d5@dmarc-reports.cloudflare.net\; ri=86400\; aspf=s\; adkim=r\; fo=0:1:d:s\;'
 _domainkey:
   ttl: 300
   type: TXT
   value: o=-
+_ens:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: a=0x84609b9CAE3bf0AE977ECB016B5E59e85C8afaaE
 _gh-andreijiroh-dev-o:
   octodns:
     cloudflare:
@@ -59,10 +80,41 @@ _gh-andreijiroh-dev-o:
   ttl: 300
   type: TXT
   value: 16058f802f
+_mta-sts:
+  ttl: 300
+  type: TXT
+  value: 'v=STSv1\; id=172805194267Z\;'
+_security:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Security policy as TXT records
+  ttl: 300
+  type: TXT
+  values:
+  - security_contact=https://andreijiroh.dev/contact/security
+  - security_contact=mailto:ajhalili2006@andreijiroh.dev
+  - security_policy=https://andreijiroh.dev/security
 blog:
   ttl: 300
   type: CNAME
   value: ajhalili2006.hackclub.app.
+#crew.recaptime.dev._report._dmarc.:
+#  ttl: 300
+#  type: TXT
+#  value: v=DMARC1
+email.mg:
+  ttl: 300
+  type: CNAME
+  value: mailgun.org.
+heliohost._domainkey:
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8OsvJVhHYgZdS6VeL8QSptyAzZv7SKPVtXceEASBd73p93pI3ZG5m7/xmZCT3lHpnvlQ15ikwY6IGGeldhiXBCB/iLdBMLCg1jNf2FCsVtb/odI+LvDrVR5ZMlDonCcmMYIYoGM+bNvL6PZ7OxF0QGV2fPFwsYEBU7sWOkmrzv6j1EvWrw20ei/I+NcJBGfOHzlFKEskV9VULfGmzCcC4jGaF0rVEPjJDL2OkIFSu7BBg5GyZCedrPG/tFZTdtGLUkuhNJrKqoqA2IlZlxpI4EB6OrXGdZh+rQWcZE0IYssHfpPnY7kqYzU6ug/Hfc8RC0O6z4Al9t2k4XQDkRQ5DwIDAQAB\;
+k1._domainkey.mg:
+  ttl: 300
+  type: TXT
+  value: k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAug+Y7/HrQqnT9mv30NZCIsMGHYO/fqIqejECU6SzJt6Voi+/VbnhfM8vGiGNbbhlfe81Tl7fqQviZui5zcgHTUj00nTSHHUyiZaOr3rNeQDmZmMTCbyf3c5tYrT442esAl1g1BLmQktQTZCZoTsjxFyZeqhdqLLOUsBVCdbxfIWw035STnbd/yLzhqBisbqzxqrGfdDGXx5/L46l7uPQLlXYVy7P7Opa225tqi4RrNx9aKBrXdv8wc8yE4aooJb+sNd67j/GcznUAIKWr29+eU06zeLp8MPTN21JcLU+Ehr7RdiCbkayrGsjLEVl8K0zjge+qzJA/MiY4RXYO0dE6wIDAQAB
 localdev:
   octodns:
     cloudflare:
@@ -76,33 +128,34 @@ matrix:
     cloudflare:
       auto-ttl: true
       comment: Matrix homeserver on Hack Club Nest
+      proxied: true
   ttl: 300
-  type: CNAME
-  value: ajhalili2006.hackclub.app.
+  type: A
+  value: 54.166.217.106 # Trialing AWS for now btw
 mg:
-- ttl: 300
-  type: TXT
-  values:
-  - "v=spf1 include:mailgun.org ~all"
 - ttl: 300
   type: MX
   values:
   - exchange: mxa.mailgun.org.
-    priority: 10
+    preference: 10
   - exchange: mxb.mailgun.org.
-    priority: 10
-email.mg:
+    preference: 10
+- ttl: 300
+  type: TXT
+  value: v=spf1 include:mailgun.org ~all
+mta-sts:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
   ttl: 300
   type: CNAME
-  value: mailgun.org.
-k1._domainkey.mg:
-  ttl: 300
-  type: TXT
-  value: k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAug+Y7/HrQqnT9mv30NZCIsMGHYO/fqIqejECU6SzJt6Voi+/VbnhfM8vGiGNbbhlfe81Tl7fqQviZui5zcgHTUj00nTSHHUyiZaOr3rNeQDmZmMTCbyf3c5tYrT442esAl1g1BLmQktQTZCZoTsjxFyZeqhdqLLOUsBVCdbxfIWw035STnbd/yLzhqBisbqzxqrGfdDGXx5/L46l7uPQLlXYVy7P7Opa225tqi4RrNx9aKBrXdv8wc8yE4aooJb+sNd67j/GcznUAIKWr29+eU06zeLp8MPTN21JcLU+Ehr7RdiCbkayrGsjLEVl8K0zjge+qzJA/MiY4RXYO0dE6wIDAQAB
+  value: mta-sts-ajhalili2006.pages.dev.
 plesk:
   octodns:
     cloudflare:
-      comment: "Plesk dashboard for tommy2"
+      auto-ttl: true
+      comment: Plesk dashboard for tommy2
       proxied: true
   ttl: 300
   type: CNAME
@@ -115,6 +168,10 @@ sponsors:
   ttl: 300
   type: CNAME
   value: 5a21222659-hosting.gitbook.io.
+status:
+  ttl: 300
+  type: CNAME
+  value: andreijiroh-dev.github.io.
 stellapent-cier.tailnet:
 - ttl: 300
   type: A
@@ -122,10 +179,6 @@ stellapent-cier.tailnet:
 - ttl: 300
   type: AAAA
   value: fd7a:115c:a1e0::a401:e35e
-status:
-  ttl: 300
-  type: CNAME
-  value: andreijiroh-dev.github.io.
 tommy2heliohost._domainkey:
   octodns:
     cloudflare:
@@ -157,3 +210,10 @@ www:
   ttl: 300
   type: CNAME
   value: ajhalili2006.helioho.st.
+youtrack:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.youtrack.cloud.

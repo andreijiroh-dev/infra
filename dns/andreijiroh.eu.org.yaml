@@ -83,16 +83,21 @@ _github-pages-challenge-ajhalili2006-experiments.experiments:
 _gitlab-pages-verification-code.garden:
   type: TXT
   value: gitlab-pages-verification-code=7090a47b38110e7b5e76a26b5e5c61e5
+_mta-sts:
+  ttl: 300
+  type: TXT
+  value: 'v=STSv1\; id=172805194267Z\;'
 _security:
   octodns:
     cloudflare:
       auto-ttl: true
+      comment: Security policy as TXT records
   ttl: 300
   type: TXT
   values:
-  - security_contact=https://andreijiroh.eu.org/secuirty/report
-  - security_contact=mailto:security@andreijiroh.eu.org
-  - security_policy=https://andreijiroh.eu.org/security
+  - security_contact=https://andreijiroh.dev/contact/security
+  - security_contact=mailto:ajhalili2006@andreijiroh.dev
+  - security_policy=https://andreijiroh.dev/security
 _sip._tls:
   type: SRV
   value:
@@ -209,6 +214,14 @@ mailru._domainkey:
   ttl: 300
   type: TXT
   value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDkXX44cOGATMhfYtOlTk07z+IyQ65X/KbFnr1mTsE9uCXakKGWRlI1uDoQnD5JpqS8KpHch3l8QCT6tH0HWBpd1R2rSVCYIvGQqDiTjTAM6ilrzDFaiWM9PgflhWcRUJWpDpCTr+gXngfsvtT5cv84RJ53681Ae2lK7PaILVzB2QIDAQAB
+mta-sts:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: mta-sts-ajhalili2006.pages.dev.
 multifandom:
   octodns:
     cloudflare:
