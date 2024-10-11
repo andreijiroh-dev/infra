@@ -7,6 +7,7 @@ services:
     image: ghcr.io/andreijiroh-dev/docker-images/caddy
     volumes:
       - ./caddy:/etc/caddy
+      - /run/tailscale/tailscaled.sock:/run/tailscale/tailscaled.sock
       - caddy:/data/caddy
     cap_add:
       - NET_ADMIN
@@ -14,11 +15,15 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 2019:2019
+      - 127.0.0.1:2019:2019
     networks:
       - tailscale
       - proxyparty-router
-    command: caddy run --environ --resume
+    command: caddy run --environ --resume --watch --config /etc/caddy/Caddyfile
+    restart: unless-stopped
+    env_file:
+      - .env
+      - .env.localdev.decrypted
 
   bastion:
     build:
@@ -26,10 +31,12 @@ services:
     volumes:
       # TODO: Update this path if you're rootless
       - /var/run/docker.sock:/var/run/docker.sock
+      - ../..:/var/lib/infraops
     env_file:
       - .env.localdev.decrypted
     networks:
       - tailscale
+    restart: unless-stopped
 
   redis:
     image: bitnami/redis:7.4
@@ -41,6 +48,7 @@ services:
       - db-redis:/bitnami/redis/data
     networks:
       - tailscale
+    restart: unless-stopped
 
   mysql:
     image: mysql:8.0

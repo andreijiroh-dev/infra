@@ -1,0 +1,38 @@
+services:  
+  keycloak-lab:
+    image: quay.io/phasetwo/phasetwo-keycloak
+    restart: unless-stopped
+    networks:
+      - proxyparty-router
+      - tailscale
+    entrypoint: [
+      "/opt/keycloak/bin/kc.sh",
+      "start",
+      "--spi-email-template-provider=freemarker-plus-mustache",
+      "--spi-email-template-freemarker-plus-mustache-enabled=true",
+      "--spi-theme-cache-themes=false"
+    ]
+    env_file:
+      - .env.localdev.decrypted
+    environment:
+      - KEYCLOAK_USER=ajhalili2006
+      - KEYCLOAK_PASSWORD=changeThisKeyToSomethingElse
+      - KEYCLOAK_ADMIN=localdevops
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_HTTP_ENABLED=true
+      - KC_PROXY=edge
+      - KC_LOG_LEVEL=INFO
+      - PROXY_ADDRESS_FORWARDING=true
+      - KC_HOSTNAME_STRICT=false
+      - KC_HOSTNAME_URL=https://sso.stellapent.tailnet.andreijiroh.dev
+      - KC_HOSTNAME_ADMIN_URL=https://sso.stellapent.tailnet.andreijiroh.dev
+
+networks:
+  proxyparty-router:
+    enable_ipv6: true
+    name: proxyparty-docker
+    external: true
+  tailscale:
+    enable_ipv6: true
+    name: tsnet-router
+    external: true

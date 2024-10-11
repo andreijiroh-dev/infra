@@ -1,0 +1,50 @@
+{
+  admin :2019
+  email ajhalili2006@tuta.io
+
+	# use Storj DCS for storing SSL keys via S3 API
+	storage s3 {
+		host "gateway.storjshare.io"
+		bucket "docker-mounts"
+		access_id {$STORJ_DCS_GATEWAY_ACCESS_ID}
+		secret_key {$STORJ_DCS_GATEWAY_ACCESS_SECRET}
+		prefix "caddy/localdev"
+	}
+}
+
+{$TAILSCALE_HOSTNAME}.{$TAILSCALE_TLS_SUBDOMAIN}.ts.net {
+  respond "Hello world!"
+  handle_errors {
+	  respond "{err.status_code} {err.status_text}"
+  }
+}
+
+*.localdev.andreijiroh.dev localdev.andreijiroh.dev {
+  tls {
+    dns cloudflare {$CLOUDFLARE_API_TOKEN}
+  }
+  respond "Hello world!"
+  handle_errors {
+	  respond "{err.status_code} {err.status_text}"
+  }
+
+  @keycloak host sso.localdev.andreijiroh.dev
+  handle @keycloak {
+    reverse_proxy keycloak-lab:8080
+  }
+}
+
+*.stellapent.tailnet.andreijiroh.dev stellapent.tailnet.andreijiroh.dev {
+  tls {
+    dns cloudflare {$CLOUDFLARE_API_TOKEN}
+  }
+  respond "Hello world!"
+  handle_errors {
+	  respond "{err.status_code} {err.status_text}"
+  }
+
+  @keycloak host sso.stellapent.tailnet.andreijiroh.dev
+  handle @keycloak {
+    reverse_proxy keycloak-lab:8080
+  }
+}
