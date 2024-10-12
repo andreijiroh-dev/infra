@@ -1,0 +1,5 @@
+image: TBD
+
+stages:
+- test
+- deploy
