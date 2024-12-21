@@ -1,6 +1,64 @@
-version: "3.4"
+#version: "3.4"
 
 services:
+  ## infraops
+  tsd-proxy:
+    networks:
+    - internal
+    image: almeidapaulopt/tsdproxy:latest
+    volumes:
+      - /run/user/2294/docker.sock:/var/run/docker.sock
+      - tsd-proxy-data:/data
+      - ./config/tsd-proxy:/config
+    labels:
+      - tsdproxy.enable=true
+      - tsdproxy.name=nest-tsdproxy-dash
+    restart: unless-stopped
+  portainer:
+    networks:
+    - internal
+    image: portainer/portainer-ce:latest
+    labels:
+      tsdproxy.enable: "true"
+      tsdproxy.name: "nest-portainer"
+      tsdproxy.container_port: "9000"
+    ports:
+    - 46097:8000
+    - 33689:9000
+    - 42135:9443
+    volumes:
+      - portainer-data:/data
+      - /run/user/2294/docker.sock:/var/run/docker.sock
+  ## databases
+  mysql:
+    #domainname: mysql.internal
+    networks:
+    - internal
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql-chaos
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ghost-docker
+      MYSQL_DATABASE: ghost
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+  redis:
+    image: docker.io/library/redis:alpine
+    command: --save 60 1 --loglevel warning
+    restart: unless-stopped
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      start_period: 20s
+      interval: 30s
+      retries: 5
+      timeout: 3s
+    volumes:
+      - ./data/redis:/data
+
+ ## ~ajhalili2006
   ghost:
     networks:
     - internal
@@ -34,10 +92,10 @@ services:
       database__connection__user: ghost
       database__connection__password: ghost-docker
       database__connection__database: ghost_rtdev
-      url: https://blog.andreijiroh.dev
+      url: https://blog.recaptime.dev
     env_file: .env.ghost.decrypted
     volumes:
-      - ./data/ghost:/var/lib/ghost/content
+      - ghost-rtdev:/var/lib/ghost/content
     depends_on:
       - mysql
 
@@ -73,21 +131,11 @@ services:
     ports:
       - 34171:3000
 
-  mysql:
-    #domainname: mysql.internal
-    networks:
-    - internal
-    image: mysql:8.0
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: mysql-chaos
-      MYSQL_USER: ghost
-      MYSQL_PASSWORD: ghost-docker
-      MYSQL_DATABASE: ghost
-    volumes:
-      - ./data/mysql:/var/lib/mysql
-
 networks:
   internal:
     attachable: true
 
+volumes:
+  portainer-data:
+  tsd-proxy-data:
+  ghost-rtdev:
