@@ -12,9 +12,9 @@
         comment: Uberspace mailbox (iapetus)
     ttl: 300
     type: MX
-    values:
-      - exchange: iapetus.uberspace.de.
-        preference: 10
+    value:
+      exchange: iapetus.uberspace.de.
+      preference: 10
   - octodns:
       cloudflare:
         auto-ttl: true
@@ -24,7 +24,7 @@
     - TAILSCALE-9bqiXFscKPtpcfv62xXn
     - google-site-verification=puR8g7Wn_-HRIrJhDj3UtmDu2vz8hsfLASzmIZGm1rA
     - 'https://hackclub.com/arcade | #ajhalili2006-lair:hackclub.slack.com'
-    - 'v=spf1 ip4:65.19.154.90 ip6:2001:470:1:1ee::1002 include:spf.uberspace.de ~all'
+    - v=spf1 ip4:65.19.154.90 ip6:2001:470:1:1ee::1002 include:spf.uberspace.de ~all
 '*':
 - octodns:
     cloudflare:
@@ -38,13 +38,25 @@
   ttl: 300
   type: AAAA
   value: '2600:1900:4001:b0b:0:1::'
-- ttl: 300
+- octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
   type: TXT
   values:
   - domain-verification=ajhalili2006
+  - storj-tls:true
   - v=managed-dns tool:octodns repo:https://github.com/andreijiroh-dev/infra
+'*.cdn':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Storj DCS wildcard CNAME
+  ttl: 300
+  type: CNAME
+  value: link.storjshare.io.
 '*.localdev':
-- ttl: 300
+  ttl: 300
   type: A
   value: 127.0.0.1
 '*.stellapent.tailnet':
@@ -54,6 +66,22 @@
 - ttl: 300
   type: AAAA
   value: fd7a:115c:a1e0::a401:e35e
+'*.wplabs':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: tailnet-only WordPress lab
+  ttl: 300
+  type: CNAME
+  value: wp.stellapent.tailnet.andreijiroh.dev.
+_acme-challenge.api:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: deno deploy tls for api-toolkit
+  ttl: 300
+  type: CNAME
+  value: 738194bd7b6e32ceff1320fb._acme.deno.dev.
 _atproto:
   octodns:
     cloudflare:
@@ -61,13 +89,22 @@ _atproto:
   ttl: 300
   type: TXT
   value: did=did:plc:wcx4c3osbuzrwmxkqdfqygwv
+_discord:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: dh=42c96d7d48430cd0423da86d6a54dffbd9b6f867
 _dmarc:
   octodns:
     cloudflare:
       auto-ttl: true
   ttl: 300
   type: TXT
-  value: 'v=DMARC1\; p=reject\; sp=reject\; pct=100\; rua=mailto:ccbe166eb276418eae05602faa3926d5@dmarc-reports.cloudflare.net\; ruf=mailto:ccbe166eb276418eae05602faa3926d5@dmarc-reports.cloudflare.net\; ri=86400\; aspf=s\; adkim=r\; fo=0:1:d:s\;'
+  value: v=DMARC1\; p=reject\; sp=reject\; pct=100\; rua=mailto:ccbe166eb276418eae05602faa3926d5@dmarc-reports.cloudflare.net\;
+    ruf=mailto:ccbe166eb276418eae05602faa3926d5@dmarc-reports.cloudflare.net\; ri=86400\;
+    aspf=s\; adkim=r\; fo=0:1:d:s\;
 _domainkey:
   ttl: 300
   type: TXT
@@ -90,7 +127,7 @@ _gh-andreijiroh-dev-o:
 _mta-sts:
   ttl: 300
   type: TXT
-  value: 'v=STSv1\; id=172805194267Z\;'
+  value: v=STSv1\; id=172805194267Z\;
 _security:
   octodns:
     cloudflare:
@@ -102,14 +139,41 @@ _security:
   - security_contact=https://andreijiroh.dev/contact/security
   - security_contact=mailto:ajhalili2006@andreijiroh.dev
   - security_policy=https://andreijiroh.dev/security
+api:
+- octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: deno deploy for api-toolkit
+  ttl: 300
+  type: A
+  value: 34.120.54.55
+- octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: deno deploy for api-toolkit
+  ttl: 300
+  type: AAAA
+  value: '2600:1901:0:6d85::'
 blog:
   ttl: 300
   type: CNAME
   value: ajhalili2006.hackclub.app.
-#crew.recaptime.dev._report._dmarc.:
-#  ttl: 300
-#  type: TXT
-#  value: v=DMARC1
+cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Storj DCS CNAME to ajhalili2006-files bucket
+  ttl: 300
+  type: CNAME
+  value: link.storjshare.io.
+counterspell-construct.codelabs:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: counterspell24-echoesoftheabyss.pages.dev.
 email.mg:
   ttl: 300
   type: CNAME
@@ -145,7 +209,7 @@ matrix:
       comment: Matrix homeserver on Uberspace
   ttl: 300
   type: AAAA
-  value: "2a00:d0c0:200:0:58fd:35ff:fe24:971d"
+  value: 2a00:d0c0:200:0:58fd:35ff:fe24:971d
 mg:
 - ttl: 300
   type: MX
@@ -165,12 +229,14 @@ mta-sts:
   ttl: 300
   type: CNAME
   value: mta-sts-ajhalili2006.pages.dev.
-portfolio:
-  ocotodns:
+multifandom:
+  octodns:
     cloudflare:
-      comment: glitch in bio
-      proxied: true
       auto-ttl: true
+  ttl: 300
+  type: A
+  value: 66.6.44.4
+portfolio:
   ttl: 300
   type: CNAME
   value: ajhalili2006.glitch.me.
@@ -200,14 +266,30 @@ tommy2heliohost._domainkey:
   ttl: 300
   type: TXT
   value: v=DKIM1\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqIQfQhkFCIelBwCGlLCm9FFb36ksaB7vb1Oj/rTzWhz/1xAtg6XtdHHrL2zTzodsEWGFl1eZ5Wjdktb8bqxieVFtdMJJ5r3sW+4Oimx9oDPtA9ZWRw2My231mux9OGSiVhOjKSI+eLzsOAKc/BcLqYrg1PnbkV8lK/T0MQpxX+lSbGidlVM5MVceUgeJ+Kq+D7cbBupFqv8atHO6OxRMDLRqDacwVLGkrjHnOMss9WfZ4st1bTxxCufUSRDKLCevyBcO2IKzsVTt+0nlQQ6UI9lTYqpLJDqA7X6P/o5jF2aAIn+G9mBGwuk/bb/i55oBiEI1+Wu4kVnL6IxEmhLVfwIDAQAB\;
+txt-cdn:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  values:
+  - storj-access:jusk57rf6lwo7s5izlh35j2dh26q
+  - storj-root:ajhalili2006-files
+  - storj-tls:true
 uberspace._domainkey:
   octodns:
     cloudflare:
       comment: Uberspace mailbox
   ttl: 300
   type: TXT
-  values:
-  - 'v=DKIM1\;t=s\;n=core\;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuPhlWJW6Nkf4camdWvj6Y76D/157pKneLoacRWkP8kDUUOet+VFUPn32pNJOYpsJ6q+5CruJarQRi84S+41SeS1j3YAB1ATlorvdFqNW1Bibq2kxmypApEOtNOrPhZ9TSJe0nHX8YBSoOwx/fjeNZUBQ8Ntut1tY2ZMheU5VqZTzvW54JCIxY4XcZfZUw8a+y2wzacYIIEyWOBwQvHzNAUi/AlroYns2NtfhzJJGbVXK23ZKSX5N3D1kOB4bp3yzc9Cjglpc5TiQi7XEbvauEUOp3VSvV+4EMa6N5KbIavuuGVB+BGOPwobGiqt8Wp2jFwkAjWNT2vr9Lv68uvW4lwIDAQAB'
+  value: v=DKIM1\;t=s\;n=core\;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuPhlWJW6Nkf4camdWvj6Y76D/157pKneLoacRWkP8kDUUOet+VFUPn32pNJOYpsJ6q+5CruJarQRi84S+41SeS1j3YAB1ATlorvdFqNW1Bibq2kxmypApEOtNOrPhZ9TSJe0nHX8YBSoOwx/fjeNZUBQ8Ntut1tY2ZMheU5VqZTzvW54JCIxY4XcZfZUw8a+y2wzacYIIEyWOBwQvHzNAUi/AlroYns2NtfhzJJGbVXK23ZKSX5N3D1kOB4bp3yzc9Cjglpc5TiQi7XEbvauEUOp3VSvV+4EMa6N5KbIavuuGVB+BGOPwobGiqt8Wp2jFwkAjWNT2vr9Lv68uvW4lwIDAQAB
+uptimekuma:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: uptimekuma.andreijiroh.is-a.dev.
 wiki:
   octodns:
     cloudflare:
@@ -224,14 +306,6 @@ wikilab:
   type: CNAME
   value: nyc.domcloud.co.
 wplabs:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-      comment: tailnet-only WordPress lab
-  ttl: 300
-  type: CNAME
-  value: wp.stellapent.tailnet.andreijiroh.dev.
-'*.wplabs':
   octodns:
     cloudflare:
       auto-ttl: true

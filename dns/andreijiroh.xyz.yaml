@@ -144,7 +144,7 @@ _gitlab-pages-verification-code.garden:
 _mta-sts:
   ttl: 300
   type: TXT
-  value: 'v=STSv1\; id=172805194267Z\;'
+  value: v=STSv1\; id=172805194267Z\;
 _security:
   octodns:
     cloudflare:
@@ -277,7 +277,7 @@ matrix:
       comment: Matrix homeserver on Uberspace
   ttl: 300
   type: AAAA
-  value: "2a00:d0c0:200:0:58fd:35ff:fe24:971d"
+  value: 2a00:d0c0:200:0:58fd:35ff:fe24:971d
 mc.cdn:
   octodns:
     cloudflare:
@@ -295,11 +295,6 @@ mta-sts:
   type: CNAME
   value: mta-sts-ajhalili2006.pages.dev.
 portfolio:
-  ocotodns:
-    cloudflare:
-      comment: glitch in bio
-      proxied: true
-      auto-ttl: true
   ttl: 300
   type: CNAME
   value: ajhalili2006.glitch.me.
@@ -428,8 +423,7 @@ uberspace._domainkey:
       comment: Uberspace mailbox
   ttl: 300
   type: TXT
-  values:
-  - 'v=DKIM1\;t=s\;n=core\;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuPhlWJW6Nkf4camdWvj6Y76D/157pKneLoacRWkP8kDUUOet+VFUPn32pNJOYpsJ6q+5CruJarQRi84S+41SeS1j3YAB1ATlorvdFqNW1Bibq2kxmypApEOtNOrPhZ9TSJe0nHX8YBSoOwx/fjeNZUBQ8Ntut1tY2ZMheU5VqZTzvW54JCIxY4XcZfZUw8a+y2wzacYIIEyWOBwQvHzNAUi/AlroYns2NtfhzJJGbVXK23ZKSX5N3D1kOB4bp3yzc9Cjglpc5TiQi7XEbvauEUOp3VSvV+4EMa6N5KbIavuuGVB+BGOPwobGiqt8Wp2jFwkAjWNT2vr9Lv68uvW4lwIDAQAB'
+  value: v=DKIM1\;t=s\;n=core\;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuPhlWJW6Nkf4camdWvj6Y76D/157pKneLoacRWkP8kDUUOet+VFUPn32pNJOYpsJ6q+5CruJarQRi84S+41SeS1j3YAB1ATlorvdFqNW1Bibq2kxmypApEOtNOrPhZ9TSJe0nHX8YBSoOwx/fjeNZUBQ8Ntut1tY2ZMheU5VqZTzvW54JCIxY4XcZfZUw8a+y2wzacYIIEyWOBwQvHzNAUi/AlroYns2NtfhzJJGbVXK23ZKSX5N3D1kOB4bp3yzc9Cjglpc5TiQi7XEbvauEUOp3VSvV+4EMa6N5KbIavuuGVB+BGOPwobGiqt8Wp2jFwkAjWNT2vr9Lv68uvW4lwIDAQAB
 wiki:
   octodns:
     cloudflare:

@@ -86,7 +86,7 @@ _gitlab-pages-verification-code.garden:
 _mta-sts:
   ttl: 300
   type: TXT
-  value: 'v=STSv1\; id=172805194267Z\;'
+  value: v=STSv1\; id=172805194267Z\;
 _security:
   octodns:
     cloudflare:
