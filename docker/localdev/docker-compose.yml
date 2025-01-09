@@ -4,6 +4,7 @@
 
 services:
   proxyparty:
+    container_name: caddy
     image: ghcr.io/andreijiroh-dev/docker-images/caddy
     volumes:
       - ./caddy:/etc/caddy
@@ -19,15 +20,20 @@ services:
     networks:
       - tailscale
       - proxyparty-router
-    command: caddy run --environ --resume --watch --config /etc/caddy/Caddyfile
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+    command: caddy run --environ --resume --watch --config /etc/caddy/${TAILSCALE_HOSTNAME}.Caddyfile
     restart: unless-stopped
     env_file:
       - .env
       - .env.localdev.decrypted
 
   bastion:
+    container_name: bastion
     build:
       context: ../bastion-tailscale
+      tags:
+        - ghcr.io/andreijiroh-dev/infra/bastion:localdev
     volumes:
       # TODO: Update this path if you're rootless
       - /var/run/docker.sock:/var/run/docker.sock
@@ -36,7 +42,10 @@ services:
       - .env.localdev.decrypted
     networks:
       - tailscale
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
     restart: unless-stopped
+    hostname: bastion
 
   redis:
     image: bitnami/redis:7.4
@@ -62,6 +71,20 @@ services:
     ports:
       - 3306:3306
 
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    networks:
+      - tailscale
+      - proxyparty-router
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=http://phpmyadmin
+      - PMA_PORT=3306
+      - PMA_ABSOLUTE_URI=https://pma.localdev.andreijiroh.dev
+    env_file:
+      - .env.localdev.decrypted
+
   postgres:
     image: timescale/timescaledb:latest-pg16
     restart: unless-stopped
@@ -79,10 +102,23 @@ networks:
     enable_ipv6: true
     name: proxyparty-docker
     attachable: true
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
+        - subnet: fd49:b39c:c169::/64
+          gateway: fd49:b39c:c169::1
+    
   tailscale:
     enable_ipv6: true
     name: tsnet-router
     attachable: true
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
+        - subnet: fd49:b39c:c169:1::/64
+          gateway: fd49:b39c:c169:1::1
 
 volumes:
   db-redis:

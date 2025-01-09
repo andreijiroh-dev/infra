@@ -262,6 +262,22 @@ mailru._domainkey:
   ttl: 300
   type: TXT
   value: v=DKIM1\; k=rsa\; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjoVI/UccgpRhb9gqmGkp6DjipSXVIsYeJ9CgAyGVcqyjY9D9p8lEUTDjccf/xHTDjrEFE+EEfr7a2i2X5/B+DvQK/b7M+1q9UpXCsRqRwXICI31OY5Y4A6NRRATWCwMXYwAkgZdIBRmx15/OkSNJI/k5d1dLyJEg9oCxOX2gRfwIDAQAB
+matrix:
+- octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Matrix homeserver on Uberspace
+      proxied: true
+  ttl: 300
+  type: A
+  value: 185.26.156.170
+- octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Matrix homeserver on Uberspace
+  ttl: 300
+  type: AAAA
+  value: "2a00:d0c0:200:0:58fd:35ff:fe24:971d"
 mc.cdn:
   octodns:
     cloudflare:
@@ -278,6 +294,15 @@ mta-sts:
   ttl: 300
   type: CNAME
   value: mta-sts-ajhalili2006.pages.dev.
+portfolio:
+  ocotodns:
+    cloudflare:
+      comment: glitch in bio
+      proxied: true
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ajhalili2006.glitch.me.
 proxyparty:
   octodns:
     cloudflare:
@@ -397,15 +422,14 @@ txt-vod.cdn:
   - storj-access:jx77ughm7pvjgpbyvbzlir3sqcbq
   - storj-root:vod-archive
   - storj-tls:true
-webmail:
+uberspace._domainkey:
   octodns:
     cloudflare:
-      auto-ttl: true
-      comment: webmail on heliohost
-      proxied: true
+      comment: Uberspace mailbox
   ttl: 300
-  type: CNAME
-  value: webmail.ajhalili2006.helioho.st.
+  type: TXT
+  values:
+  - 'v=DKIM1\;t=s\;n=core\;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuPhlWJW6Nkf4camdWvj6Y76D/157pKneLoacRWkP8kDUUOet+VFUPn32pNJOYpsJ6q+5CruJarQRi84S+41SeS1j3YAB1ATlorvdFqNW1Bibq2kxmypApEOtNOrPhZ9TSJe0nHX8YBSoOwx/fjeNZUBQ8Ntut1tY2ZMheU5VqZTzvW54JCIxY4XcZfZUw8a+y2wzacYIIEyWOBwQvHzNAUi/AlroYns2NtfhzJJGbVXK23ZKSX5N3D1kOB4bp3yzc9Cjglpc5TiQi7XEbvauEUOp3VSvV+4EMa6N5KbIavuuGVB+BGOPwobGiqt8Wp2jFwkAjWNT2vr9Lv68uvW4lwIDAQAB'
 wiki:
   octodns:
     cloudflare:
@@ -414,6 +438,14 @@ wiki:
   ttl: 300
   type: CNAME
   value: ajhalili2006-garden.pages.dev.
+www:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: iapetus.uberspace.de.
 youtrack:
   octodns:
     cloudflare:

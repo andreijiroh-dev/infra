@@ -12,9 +12,11 @@ RUN apk upgrade --no-cache \
     bash \
     coreutils \
     gcompat \
-    croc
+    croc \
+    dumb-init
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY motd /etc/motd
 VOLUME [ "/var/lib/tailscale" ]
 
-ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/usr/bin/dumb-init", "--", "/usr/local/bin/docker-entrypoint.sh" ]

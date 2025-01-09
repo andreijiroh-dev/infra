@@ -26,6 +26,28 @@ services:
       - KC_HOSTNAME_STRICT=false
       - KC_HOSTNAME_URL=https://sso.stellapent.tailnet.andreijiroh.dev
       - KC_HOSTNAME_ADMIN_URL=https://sso.stellapent.tailnet.andreijiroh.dev
+  wordpress:
+    image: wordpress
+    restart: unless-stopped
+    env_file:
+      - .env.localdev.decrypted
+      - .env
+    environment:
+      # TODO: Enable this after
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_ALLOW_MULTISITE', true );
+        define( 'SUBDOMAIN_INSTALL', true );
+        define( 'DOMAIN_CURRENT_SITE', 'wplabs.andreijiroh.dev' );
+        define( 'PATH_CURRENT_SITE', '/' );
+        define( 'SITE_ID_CURRENT_SITE', 1 );
+        define( 'BLOG_ID_CURRENT_SITE', 1 );
+        define('WP_ALLOW_REPAIR', true);
+    networks:
+      - proxyparty-router
+      - tailscale
+    volumes:
+      - labs-wordpress:/var/www/html
+      - ${PWD}/wordpress.htaccess:/var/www/.htaccess
 
 networks:
   proxyparty-router:
@@ -36,3 +58,6 @@ networks:
     enable_ipv6: true
     name: tsnet-router
     external: true
+
+volumes:
+  labs-wordpress:

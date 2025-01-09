@@ -1,0 +1,8 @@
+Welcome to your localdev Docker Compose cluster's bastion!
+
+This bastion server connects to your Docker host using volumes
+instead of poking around daemon settings for HTTP server. This
+also runs on Alpine Linux to minimize image footprint.
+
+* Alpine Wiki: <https://wiki.alpinelinux.org>
+* Docker docs: <https://docs.docker.com>
