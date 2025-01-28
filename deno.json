@@ -1,11 +1,12 @@
 {
     "tasks": {
-        "dns:import": "script/import-records",
-        "dns:apply": "script/apply",
+        "dns:import": "script/dns-records import",
+        "dns:apply": "script/dns-records apply",
         "utils:check-tokens": "deno run -EN utils/test-tokens.ts"
     },
     "imports": {
         "commander": "npm:commander",
         "execa": "npm:execa"
-    }
+    },
+    "nodeModulesDir": "auto"
 }

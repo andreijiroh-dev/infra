@@ -1,0 +1,12 @@
+{$TAILNET_CUSTOM_DOMAIN_HOSTNAME}.tailnet.andreijiroh.dev *.{$TAILNET_CUSTOM_DOMAIN_HOSTNAME}.tailnet.andreijiroh.dev {
+	tls {
+		dns cloudflare {$CLOUDFLARE_API_TOKEN}
+	}
+
+	respond "Hello world!"
+	handle_errors {
+		respond "{err.status_code} {err.status_text}"
+	}
+
+	# todo add hosts here later
+}

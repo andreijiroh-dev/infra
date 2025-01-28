@@ -1,0 +1,14 @@
+{
+	admin :2019
+	email ajhalili2006@andreijiroh.dev
+}
+
+{$TAILSCALE_HOSTNAME}.{$TAILSCALE_TLS_SUBDOMAIN}.ts.net {$TAILNET_CUSTOM_DOMAIN_HOSTNAME}.tailnet.andreijiroh.dev {
+	respond "Hello world!"
+	handle_errors {
+		respond "{err.status_code} {err.status_text}"
+	}
+}
+
+include "./localdev.Caddyfile"
+include "./tainet/*.Caddyfile"

@@ -1,0 +1,16 @@
+*.localdev.andreijiroh.dev localdev.andreijiroh.dev {
+  tls {
+    dns cloudflare {$CLOUDFLARE_API_TOKEN}
+  }
+}
+
+*.proxykit.localdev.andreijiroh.dev {
+  tls {
+    dns cloudflare {$CLOUDFLARE_API_TOKEN}
+  }
+  reverse_proxy host.docker.internal:{labels.4}
+
+  handle_errors {
+    respond "Something went wrong on local server port {labels.4}: {err.status_code} {err.status_text}"
+  }
+}

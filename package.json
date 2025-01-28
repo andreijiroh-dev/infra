@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "tool:dns-records": "./script/dns-records"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.32.1"
+  }
+}
