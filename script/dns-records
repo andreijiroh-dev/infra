@@ -15,9 +15,9 @@ if [[ "$PWD" != "$GIT_ROOT" ]]; then
 fi
 
 if [ -z "${CI}" ]; then
-  dotenvx run -f .env.ci -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
+  dotenvx run -f "$GIT_ROOT/.env.ci" -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
 else
-  dotenvx run -f .env -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
+  dotenvx run -f "$GIT_ROOT/.env" -- deno run -A "$GIT_ROOT/utils/dns-records.ts" "$@"
 fi
 exitcode=$?
 

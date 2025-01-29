@@ -4,7 +4,7 @@
     "jsr:@std/bytes@^1.0.2": "1.0.2",
     "jsr:@std/path@*": "1.0.3",
     "jsr:@std/streams@*": "1.0.3",
-    "npm:@dotenvx/dotenvx@^1.32.1": "1.32.1_picomatch@4.0.2",
+    "npm:@dotenvx/dotenvx@^1.34.0": "1.34.0_picomatch@4.0.2",
     "npm:@types/node@*": "18.16.19",
     "npm:commander@*": "12.1.0",
     "npm:execa@*": "9.3.1",
@@ -25,8 +25,8 @@
     }
   },
   "npm": {
-    "@dotenvx/dotenvx@1.32.1_picomatch@4.0.2": {
-      "integrity": "sha512-xuTL8XLFkC0B0xHQzBPROY6WBwb9MA0LYBVNIinJ0VD9+gHOIuSyQut0RyDA7tmqxvZQ3C4roZ0HaWvHgX3sZQ==",
+    "@dotenvx/dotenvx@1.34.0_picomatch@4.0.2": {
+      "integrity": "sha512-+Dp/xaI3IZ4eKv+b2vg4V89VnqLKbmJ7UZ7unnZxMu9SNLOSc2jYaXey1YHCJM+67T0pOr2Gbej3TewnuoqTWQ==",
       "dependencies": [
         "commander@11.1.0",
         "dotenv",
@@ -39,23 +39,23 @@
         "which@4.0.0"
       ]
     },
-    "@ecies/ciphers@0.2.2_@noble+ciphers@1.2.0": {
+    "@ecies/ciphers@0.2.2_@noble+ciphers@1.2.1": {
       "integrity": "sha512-ylfGR7PyTd+Rm2PqQowG08BCKA22QuX8NzrL+LxAAvazN10DMwdJ2fWwAzRj05FI/M8vNFGm3cv9Wq/GFWCBLg==",
       "dependencies": [
         "@noble/ciphers"
       ]
     },
-    "@noble/ciphers@1.2.0": {
-      "integrity": "sha512-YGdEUzYEd+82jeaVbSKKVp1jFZb8LwaNMIIzHFkihGvYdd/KKAr7KaJHdEdSYGredE3ssSravXIa0Jxg28Sv5w=="
+    "@noble/ciphers@1.2.1": {
+      "integrity": "sha512-rONPWMC7PeExE077uLE4oqWrZ1IvAfz3oH9LibVAcVCopJiA9R62uavnbEzdkVmJYI6M6Zgkbeb07+tWjlq2XA=="
     },
-    "@noble/curves@1.8.0": {
-      "integrity": "sha512-j84kjAbzEnQHaSIhRPUmB3/eVXu2k3dKPl2LOrR8fSOIL+89U+7lV117EWHtq/GHM3ReGHM46iRBdZfpc4HRUQ==",
+    "@noble/curves@1.8.1": {
+      "integrity": "sha512-warwspo+UYUPep0Q+vtdVB4Ugn8GGQj8iyB3gnRWsztmUHTI3S1nhdiWNsPUGL0vud7JlRRk1XEu7Lq1KGTnMQ==",
       "dependencies": [
         "@noble/hashes"
       ]
     },
-    "@noble/hashes@1.7.0": {
-      "integrity": "sha512-HXydb0DgzTpDPwbVeDGCG1gIu7X6+AuU6Zl6av/E/KG8LMsvPntvq+w17CHRpKBmN6Ybdrt1eP3k4cj8DJa78w=="
+    "@noble/hashes@1.7.1": {
+      "integrity": "sha512-B8XBPsn4vT/KJAGqDzbwztd+6Yte3P4V7iafm24bxgDe/mlRuK6xmWPuCNrKt2vDafZ8MfJLlchDG/vYafQEjQ=="
     },
     "@sec-ant/readable-stream@0.4.1": {
       "integrity": "sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg=="
@@ -83,7 +83,7 @@
     "dotenv@16.4.7": {
       "integrity": "sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ=="
     },
-    "eciesjs@0.4.13_@noble+ciphers@1.2.0": {
+    "eciesjs@0.4.13_@noble+ciphers@1.2.1": {
       "integrity": "sha512-zBdtR4K+wbj10bWPpIOF9DW+eFYQu8miU5ypunh0t4Bvt83ZPlEWgT5Dq/0G6uwEXumZKjfb5BZxYUZQ2Hzn/Q==",
       "dependencies": [
         "@ecies/ciphers",
@@ -123,8 +123,8 @@
         "yoctocolors"
       ]
     },
-    "fdir@6.4.2_picomatch@4.0.2": {
-      "integrity": "sha512-KnhMXsKSPZlAhp7+IjUkRZKPb4fUyccpDrdFXbi4QL1qkmFh9kVY09Yox+n4MaOb3lHZ1Tv829C3oaaXoMYPDQ==",
+    "fdir@6.4.3_picomatch@4.0.2": {
+      "integrity": "sha512-PMXmW2y1hDDfTSRc9gaXIuCCRpuoz3Kaz8cUelp3smouvfT632ozg2vrT6lJsHKKOF59YLbOGfAWGUcKEfRMQw==",
       "dependencies": [
         "picomatch"
       ]
@@ -270,7 +270,7 @@
     ],
     "packageJson": {
       "dependencies": [
-        "npm:@dotenvx/dotenvx@^1.32.1"
+        "npm:@dotenvx/dotenvx@^1.34.0"
       ]
     }
   }

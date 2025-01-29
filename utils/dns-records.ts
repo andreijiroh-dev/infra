@@ -29,12 +29,7 @@ program.command("import")
     }
     const args = [
       "run",
-      "--", 
-      "octodns-dump",
-      "--config-file",
-      configFile,
-      "--output-dir",
-      dnsRecordsYamlDir
+      "dns-export"
     ]
     args.push(addTrailingDot(domain),`${provider || "cf"}`)
     console.log(`trying to exec ${whereCli} ${args.join(" ")}`)
@@ -76,7 +71,7 @@ program.command("plan")
     if (Deno.env.get("CLOUDFLARE_TOKEN") == undefined) {
       throw new Error("Cloudflare API token missing, maybe forgot to set DOTENV_PRIVATE_KEY?")
     }
-    const args = ["run", "--", "octodns-sync", "--config-file", configFile]
+    const args = ["run", "dns-dryrun"]
     console.log(`trying to exec ${whereCli} ${args.join(" ")}`)
     const ops = new Deno.Command(whereCli, {
       args,
@@ -118,7 +113,7 @@ program.command("apply")
       throw new Error("Cloudflare API token missing, maybe forgot to set DOTENV_PRIVATE_KEY?")
     }
 
-    const args = ["run", "--", "octodns-sync", "--config-file", configFile, "--doit"]
+    const args = ["run", "dns-apply"]
 
     if (opts.forceApply == true) {
       args.push("--force")

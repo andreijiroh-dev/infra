@@ -59,21 +59,6 @@
   ttl: 300
   type: A
   value: 127.0.0.1
-'*.stellapent.tailnet':
-- ttl: 300
-  type: A
-  value: 100.87.227.94
-- ttl: 300
-  type: AAAA
-  value: fd7a:115c:a1e0::a401:e35e
-'*.wplabs':
-  octodns:
-    cloudflare:
-      auto-ttl: true
-      comment: tailnet-only WordPress lab
-  ttl: 300
-  type: CNAME
-  value: wp.stellapent.tailnet.andreijiroh.dev.
 _acme-challenge.api:
   octodns:
     cloudflare:
@@ -252,13 +237,25 @@ status:
   ttl: 300
   type: CNAME
   value: andreijiroh-dev.github.io.
-stellapent.tailnet:
-- ttl: 300
-  type: A
-  value: 100.87.227.94
-- ttl: 300
-  type: AAAA
-  value: fd7a:115c:a1e0::a401:e35e
+tailnet:
+- octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: DS
+  value:
+    algorithm: 13
+    digest: CC4238C1416F65932CE32BA56214DE0FD888CBDD042E881ED367EF3BC1C5E52C
+    digest_type: 2
+    key_tag: 64753
+- octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: NS
+  values:
+  - ns1.desec.io.
+  - ns2.desec.org.
 tommy2heliohost._domainkey:
   octodns:
     cloudflare:
@@ -305,14 +302,6 @@ wikilab:
   ttl: 300
   type: CNAME
   value: nyc.domcloud.co.
-wplabs:
-  octodns:
-    cloudflare:
-      auto-ttl: true
-      comment: tailnet-only WordPress lab
-  ttl: 300
-  type: CNAME
-  value: wp.stellapent.tailnet.andreijiroh.dev.
 www:
   octodns:
     cloudflare:

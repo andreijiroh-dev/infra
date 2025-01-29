@@ -1,0 +1,31 @@
+---
+? ''
+: octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: ALIAS
+  value: ajhalili2006.pages.dev.
+_discord:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Discord domain verification
+  ttl: 300
+  type: TXT
+  value: dh=3e418355487305cc4560b0611ba783271ccc066d
+git.infraops:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: A
+  value: 69.30.249.53
+uptimekuma:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: A
+  value: 69.30.249.53
