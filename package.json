@@ -3,6 +3,7 @@
     "tool:dns-records": "./script/dns-records"
   },
   "dependencies": {
-    "@dotenvx/dotenvx": "^1.34.0"
+    "@dotenvx/dotenvx": "^1.51.0",
+    "npm-check-updates": "^19.0.0"
   }
 }
